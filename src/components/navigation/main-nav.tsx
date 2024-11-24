@@ -10,7 +10,8 @@ import {
   handleDefaultSearchInp,
 } from '@/lib/utils';
 import { siteConfig } from '@/configs/site';
-import { Icons } from '@/components/icons';
+// import { Icons } from '@/components/icons';
+import tealLogo from '/public/teal_logo.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -129,7 +130,7 @@ export function MainNav({ items }: MainNavProps) {
           className="hidden md:block"
           onClick={() => handleChangeStatusOpen(false)}>
           <div className="flex items-center space-x-2">
-            <Icons.logo className="h-6 w-6" aria-hidden="true" />
+            <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
             <span className="inline-block font-bold">{siteConfig.name}</span>
             <span className="sr-only">Home</span>
           </div>
@@ -159,27 +160,20 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex items-center space-x-2 px-0 hover:bg-transparent focus:ring-0"
-                // className="h-auto px-2 py-1.5 text-base hover:bg-neutral-800 focus:ring-0 dark:hover:bg-neutral-800 lg:hidden"
-              >
-                <Icons.logo className="h-6 w-6" />
+                className="flex items-center space-x-2 px-0 hover:bg-transparent focus:ring-0">
+                <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
                 <span className="text-base font-bold">Menu</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="start"
               sideOffset={20}
-              // className="w-52 overflow-y-auto overflow-x-hidden rounded-sm bg-neutral-800 text-slate-200 dark:bg-neutral-800 dark:text-slate-200"
               className="w-52 overflow-y-auto overflow-x-hidden rounded-sm">
               <DropdownMenuLabel>
                 <Link
                   href="/"
                   className="flex items-center justify-center"
                   onClick={() => handleChangeStatusOpen(false)}>
-                  {/* <Icons.logo */}
-                  {/*   className="mr-2 h-4 w-4 text-red-600" */}
-                  {/*   aria-hidden="true" */}
-                  {/* /> */}
                   <span className="">{siteConfig.name}</span>
                 </Link>
               </DropdownMenuLabel>
@@ -193,9 +187,6 @@ export function MainNav({ items }: MainNavProps) {
                     <Link
                       href={item.href}
                       onClick={() => handleChangeStatusOpen(false)}>
-                      {/* {item.icon &&  */}
-                      {/*   <item.icon className="mr-2 h-4 w-4" aria-hidden="true" /> */}
-                      {/* } */}
                       <span
                         className={cn(
                           'line-clamp-1 text-foreground/60 hover:text-foreground/80',
@@ -220,13 +211,13 @@ export function MainNav({ items }: MainNavProps) {
           onChangeStatusOpen={handleChangeStatusOpen}
           containerClassName={cn(path === '/' ? 'hidden' : 'flex')}
         />
-        <Link
+        {/* <Link
           rel="noreferrer"
           target="_blank"
           href={siteConfig.links.github}
           className={cn(path === '/' ? 'flex' : 'hidden')}>
           <Icons.gitHub className="h-5 w-5 hover:bg-transparent" />
-        </Link>
+        </Link> */}
         <ThemeToggle />
       </div>
     </nav>

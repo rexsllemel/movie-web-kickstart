@@ -16,7 +16,7 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    NEXT_PUBLIC_APP_URL: 'https://movies.faithcloud.net',
+    NEXT_PUBLIC_APP_URL: z.string().url(),
     NEXT_PUBLIC_TMDB_TOKEN: z.string(),
     NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string().optional(),
     NEXT_PUBLIC_SITE_NAME: z.string(),

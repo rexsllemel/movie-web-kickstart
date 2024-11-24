@@ -1,16 +1,15 @@
-import React from "react";
-import { siteConfig } from "@/configs/site";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import React from 'react';
+import { siteConfig } from '@/configs/site';
+import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button';
 // import { Icons } from "@/components/icons";
 import tealLogo from '/public/teal_logo.png';
-
 
 const SiteFooter = () => {
   return (
     <footer aria-label="Footer" className="w-full">
       <div className="container grid w-full max-w-6xl gap-7 py-10">
-        <div className="flex flex-wrap items-center gap-2">
+        {/* <div className="flex flex-wrap items-center gap-2">
           {siteConfig.socialLinks.map(
             (item, i) =>
               item.href && (
@@ -43,9 +42,11 @@ const SiteFooter = () => {
                 </li>
               ),
           )}
-        </ul>
+        </ul> */}
         <p className="text-xs text-foreground/60 sm:text-sm">
-          @ {new Date().getFullYear()} {siteConfig.author}. This site does not store any files on our server, we only linked to the media which is hosted on 3rd party services.
+          @ {new Date().getFullYear()} {siteConfig.author}. This site does not
+          store any files on our server, we only linked to the media which is
+          hosted on 3rd party services.
         </p>
       </div>
       {/* <div className="container flex flex-col items-center justify-between md:h-24 md:flex-row md:py-0 gap-4"> */}
@@ -53,13 +54,12 @@ const SiteFooter = () => {
         {/* <Icons.play className="hidden h-6 w-6 md:block" /> */}
         <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
         <p className="text-center text-xs leading-loose sm:text-sm md:text-left">
-          Built by{" "}
+          Built by{' '}
           <a
             href={'https://faithcloud.net'}
             target="_blank"
             rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
+            className="font-medium underline underline-offset-4">
             {'Faith Cloud Services'}
           </a>
           {/* . The source code is available on{" "}

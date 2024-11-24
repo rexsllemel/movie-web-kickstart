@@ -2,7 +2,9 @@ import React from "react";
 import { siteConfig } from "@/configs/site";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/icons";
+// import { Icons } from "@/components/icons";
+import tealLogo from '/public/teal_logo.png';
+
 
 const SiteFooter = () => {
   return (
@@ -43,23 +45,24 @@ const SiteFooter = () => {
           )}
         </ul>
         <p className="text-xs text-foreground/60 sm:text-sm">
-          @ 2023-{new Date().getFullYear()} {siteConfig.author}.
+          @ {new Date().getFullYear()} {siteConfig.author}. This site does not store any files on our server, we only linked to the media which is hosted on 3rd party services.
         </p>
       </div>
       {/* <div className="container flex flex-col items-center justify-between md:h-24 md:flex-row md:py-0 gap-4"> */}
       <div className="container flex h-24 items-center gap-2 px-8">
-        <Icons.play className="hidden h-6 w-6 md:block" />
+        {/* <Icons.play className="hidden h-6 w-6 md:block" /> */}
+        <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
         <p className="text-center text-xs leading-loose sm:text-sm md:text-left">
           Built by{" "}
           <a
-            href={siteConfig.links.twitter}
+            href={'https://faithcloud.net'}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            {siteConfig.author}
+            {'Faith Cloud Services'}
           </a>
-          . The source code is available on{" "}
+          {/* . The source code is available on{" "}
           <a
             href={siteConfig.links.github}
             target="_blank"
@@ -67,7 +70,7 @@ const SiteFooter = () => {
             className="font-medium underline underline-offset-4"
           >
             GitHub
-          </a>
+          </a> */}
           .
         </p>
       </div>

@@ -2,7 +2,7 @@
 //
 // import { productCategories } from "@/config/products"
 // import { slugify } from "@/lib/utils"
-
+import Link from 'next/link';
 import { Icons } from '@/components/icons';
 import { env } from '@/env.mjs';
 
@@ -79,6 +79,7 @@ export const siteConfig = {
       title: 'Home',
       href: '/home',
       // icon: Icons.play,
+      externalHref: 'https://anotherlink.com',
     },
     {
       title: 'TV Shows',

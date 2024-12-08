@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 // import { Icons } from "@/components/icons";
 import tealLogo from '/public/teal_logo.png';
+import Script from 'next/script';
 
 const SiteFooter = () => {
   return (
@@ -43,6 +44,24 @@ const SiteFooter = () => {
               ),
           )}
         </ul> */}
+        <div className="mt-4 flex items-center justify-center">
+          <Script
+            src="//www.highperformanceformat.com/5de907592370c3df88f9bdd23615e6d2/invoke.js"
+            strategy="afterInteractive"
+          />
+          <Script id="setAtOptions" strategy="afterInteractive">
+            {`
+            atOptions = {
+              key: '5de907592370c3df88f9bdd23615e6d2',
+              format: 'iframe',
+              height: 50,
+              width: 320,
+              params: {}
+            };
+          `}
+          </Script>
+        </div>
+
         <p className="text-xs text-foreground/60 sm:text-sm">
           @ {new Date().getFullYear()} {siteConfig.author}. This site does not
           store any files on our server, we only linked to the media which is

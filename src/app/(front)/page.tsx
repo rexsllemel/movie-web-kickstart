@@ -1,8 +1,6 @@
 import { Icons } from '@/components/icons';
 import { Badge } from '@/components/ui/badge';
-import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/configs/site';
-import { ArrowRight } from 'lucide-react';
 import { WatchNowButton } from '@/components/WatchNowButton';
 import Link from 'next/link';
 
@@ -13,7 +11,7 @@ export default function Index() {
         id="hero"
         aria-labelledby="hero-heading"
         className="container mx-auto flex flex-col items-center justify-center gap-4 pb-8 pt-28 text-center md:pb-12 lg:py-32">
-        <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
+        {/* <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
           <Badge
             aria-hidden="true"
             className="rounded-md px-3.5 py-1.5"
@@ -22,7 +20,7 @@ export default function Index() {
             Follow along on Twitter
           </Badge>
           <span className="sr-only">Twitter</span>
-        </Link>
+        </Link> */}
         <h1 className="max-w-screen-lg text-center font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
           {siteConfig.name} - {siteConfig.slogan}
           {/* {siteConfig.name} - watch tv shows online, watch movies online. */}
@@ -138,6 +136,21 @@ export default function Index() {
               </div>
             </div>
           </div>
+          {/* <Script
+        src="//www.highperformanceformat.com/5de907592370c3df88f9bdd23615e6d2/invoke.js"
+        strategy="afterInteractive"
+          />
+          <Script id="setAtOptions" strategy="afterInteractive">
+            {`
+              atOptions = {
+                key: '5de907592370c3df88f9bdd23615e6d2',
+                format: 'iframe',
+                height: 50,
+                width: 320,
+                params: {}
+              };
+            `}
+          </Script> */}
         </div>
         {/* <div className="mx-auto text-center md:max-w-[58rem]"> */}
         {/*   <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7"> */}

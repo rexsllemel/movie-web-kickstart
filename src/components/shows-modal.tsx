@@ -243,6 +243,14 @@ const ShowModal = () => {
             <span className="text-slate-400">Genres:</span>
             {genres.map((genre) => genre.name).join(', ')}
           </div>
+          <div className="mx-auto mt-8 w-full max-w-[1200px]">
+            <iframe
+              src="https://www.profitablecpmrate.com/esxakj3b?key=4fa27388d230df37216df8c1510e10ba"
+              title="Embedded Content"
+              className="h-[200px] w-full rounded-lg border"
+              frameBorder="0"
+              allowFullScreen></iframe>
+          </div>
         </div>
       </DialogContent>
     </Dialog>

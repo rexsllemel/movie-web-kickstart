@@ -1,9 +1,10 @@
-import { Icons } from "@/components/icons";
-import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
-import { siteConfig } from "@/configs/site";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Icons } from '@/components/icons';
+import { Badge } from '@/components/ui/badge';
+import { buttonVariants } from '@/components/ui/button';
+import { siteConfig } from '@/configs/site';
+import { ArrowRight } from 'lucide-react';
+import { WatchNowButton } from '@/components/WatchNowButton';
+import Link from 'next/link';
 
 export default function Index() {
   return (
@@ -11,14 +12,12 @@ export default function Index() {
       <section
         id="hero"
         aria-labelledby="hero-heading"
-        className="container mx-auto flex flex-col items-center justify-center gap-4 pb-8 pt-28 text-center md:pb-12 lg:py-32"
-      >
+        className="container mx-auto flex flex-col items-center justify-center gap-4 pb-8 pt-28 text-center md:pb-12 lg:py-32">
         <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
           <Badge
             aria-hidden="true"
             className="rounded-md px-3.5 py-1.5"
-            variant="secondary"
-          >
+            variant="secondary">
             <Icons.twitter className="mr-2 h-3.5 w-3.5" />
             Follow along on Twitter
           </Badge>
@@ -34,17 +33,14 @@ export default function Index() {
           screens come alive with an endless array of captivating stories.
         </p>
         <div className="space-x-4">
-          <Link className={`${buttonVariants({ size: "lg" })}`} href="/home">
-            Watch Now <ArrowRight className="ml-1 inline-block" />
-          </Link>
+          <WatchNowButton />
           {/* <Link className={`${buttonVariants({ size: "lg", variant: "outline" })}`} href={siteConfig.links.github} target="_blank" */}
           {/*   rel="noreferrer">GitHub</Link> */}
         </div>
       </section>
       <section
         id="features"
-        className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
-      >
+        className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24">
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
           <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
             Features
@@ -117,8 +113,7 @@ export default function Index() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1"
-                className="h-12 w-12 fill-current"
-              >
+                className="h-12 w-12 fill-current">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
               <div className="space-y-2">

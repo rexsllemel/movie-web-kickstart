@@ -11,6 +11,7 @@ import {
 import { getMobileDetect, getYear } from '@/lib/utils';
 import MovieService from '@/services/MovieService';
 import { useModalStore } from '@/stores/modal';
+import Script from 'next/script';
 import {
   MediaType,
   type Genre,
@@ -235,6 +236,23 @@ const ShowModal = () => {
                 {modalStore.show.original_language.toUpperCase()}
               </span>
             )}
+          </div>
+          <div className="mt-4 flex items-center justify-center">
+            <Script
+              src="//www.highperformanceformat.com/5de907592370c3df88f9bdd23615e6d2/invoke.js"
+              strategy="afterInteractive"
+            />
+            <Script id="setAtOptions" strategy="afterInteractive">
+              {`
+            atOptions = {
+              key: '5de907592370c3df88f9bdd23615e6d2',
+              format: 'iframe',
+              height: 50,
+              width: 320,
+              params: {}
+            };
+          `}
+            </Script>
           </div>
           <DialogDescription className="line-clamp-3 text-xs text-slate-50 dark:text-slate-50 sm:text-sm">
             {modalStore.show?.overview ?? '-'}

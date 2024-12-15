@@ -79,7 +79,6 @@ export const siteConfig = {
       title: 'Home',
       href: '/home',
       // icon: Icons.play,
-      externalHref: 'https://anotherlink.com',
     },
     {
       title: 'TV Shows',
@@ -96,11 +95,11 @@ export const siteConfig = {
       href: '/new-and-popular',
       // icon: Icons.trendingUp,
     },
-    // {
-    //   title: "My List",
-    //   href: "/my-list",
-    //   // icon: Icons.list,
-    // },
+    {
+      title: 'Anime',
+      href: '/anime',
+      // icon: Icons.list,
+    },
     {
       title: 'Notifications',
       // onClick: () => alert("🛹 Do a kickflip"),

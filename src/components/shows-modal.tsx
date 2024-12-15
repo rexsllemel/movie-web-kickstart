@@ -238,7 +238,6 @@ const ShowModal = () => {
               </span>
             )}
           </div>
-          <CPM />
           <DialogDescription className="line-clamp-3 text-xs text-slate-50 dark:text-slate-50 sm:text-sm">
             {modalStore.show?.overview ?? '-'}
           </DialogDescription>
@@ -248,7 +247,7 @@ const ShowModal = () => {
           </div>
           <div className="mx-auto mt-8 w-full max-w-[1200px]">
             <iframe
-              src="https://www.profitablecpmrate.com/esxakj3b?key=4fa27388d230df37216df8c1510e10ba"
+              src="https://latelyninetyfeelings.com/esxakj3b?key=4fa27388d230df37216df8c1510e10ba"
               title="Embedded Content"
               className="h-[200px] w-full rounded-lg border"
               frameBorder="0"

@@ -238,6 +238,7 @@ const ShowModal = () => {
               </span>
             )}
           </div>
+          <CPM />
           <DialogDescription className="line-clamp-3 text-xs text-slate-50 dark:text-slate-50 sm:text-sm">
             {modalStore.show?.overview ?? '-'}
           </DialogDescription>

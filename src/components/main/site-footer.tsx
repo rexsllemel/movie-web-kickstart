@@ -46,7 +46,7 @@ const SiteFooter = () => {
           )}
         </ul> */}
         <CPM />
-        <div className="mt-4 flex items-center justify-center">
+        <div className="fixed bottom-0 left-0 right-0 mt-4 flex items-center justify-center bg-white">
           <Script
             src="//www.highperformanceformat.com/8a147717f26470e2cbe6e10557afdf68/invoke.js"
             strategy="afterInteractive"

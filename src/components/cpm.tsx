@@ -4,7 +4,7 @@ import Script from 'next/script';
 
 export function CPM() {
   return (
-    <div className="mt-4 flex items-center justify-center">
+    <div className="fixed bottom-0 left-0 right-0 mt-4 flex items-center justify-center bg-white">
       <Script
         src="//latelyninetyfeelings.com/5de907592370c3df88f9bdd23615e6d2/invoke.js"
         strategy="afterInteractive"

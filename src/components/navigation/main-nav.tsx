@@ -11,7 +11,7 @@ import {
 } from '@/lib/utils';
 import { siteConfig } from '@/configs/site';
 // import { Icons } from '@/components/icons';
-import tealLogo from '/public/teal_logo.png';
+// import tealLogo from '/public/teal_logo.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -124,84 +124,6 @@ export function MainNav({ items }: MainNavProps) {
         'relative flex h-12 w-full items-center justify-between bg-gradient-to-b from-secondary/70 from-10% px-[4vw] transition-colors duration-300 md:sticky md:h-16',
         isScrolled ? 'bg-secondary shadow-md' : 'bg-transparent',
       )}>
-      <div className="flex items-center gap-6 md:gap-10">
-        <Link
-          href="/"
-          className="hidden md:block"
-          onClick={() => handleChangeStatusOpen(false)}>
-          <div className="flex items-center space-x-2">
-            <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
-            <span className="inline-block font-bold">{siteConfig.name}</span>
-            <span className="sr-only">Home</span>
-          </div>
-        </Link>
-        {items?.length ? (
-          <nav className="hidden gap-6 md:flex">
-            {items?.map(
-              (item, index) =>
-                item.href && (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    className={cn(
-                      'flex items-center text-sm font-medium text-foreground/60 transition hover:text-foreground/80',
-                      path === item.href && 'font-bold text-foreground',
-                      item.disabled && 'cursor-not-allowed opacity-80',
-                    )}
-                    onClick={() => handleChangeStatusOpen(false)}>
-                    {item.title}
-                  </Link>
-                ),
-            )}
-          </nav>
-        ) : null}
-        <div className="block md:hidden">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                className="flex items-center space-x-2 px-0 hover:bg-transparent focus:ring-0">
-                <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
-                <span className="text-base font-bold">Menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent
-              align="start"
-              sideOffset={20}
-              className="w-52 overflow-y-auto overflow-x-hidden rounded-sm">
-              <DropdownMenuLabel>
-                <Link
-                  href="/"
-                  className="flex items-center justify-center"
-                  onClick={() => handleChangeStatusOpen(false)}>
-                  <span className="">{siteConfig.name}</span>
-                </Link>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {items?.map((item, index) => (
-                <DropdownMenuItem
-                  key={index}
-                  asChild
-                  className="items-center justify-center">
-                  {item.href && (
-                    <Link
-                      href={item.href}
-                      onClick={() => handleChangeStatusOpen(false)}>
-                      <span
-                        className={cn(
-                          'line-clamp-1 text-foreground/60 hover:text-foreground/80',
-                          path === item.href && 'font-bold text-foreground',
-                        )}>
-                        {item.title}
-                      </span>
-                    </Link>
-                  )}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div>
       <div className="flex items-center gap-1">
         <DebouncedInput
           id="search-input"
@@ -218,7 +140,7 @@ export function MainNav({ items }: MainNavProps) {
           className={cn(path === '/' ? 'flex' : 'hidden')}>
           <Icons.gitHub className="h-5 w-5 hover:bg-transparent" />
         </Link> */}
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
     </nav>
   );

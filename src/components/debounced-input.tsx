@@ -21,7 +21,7 @@ export function DebouncedInput({
   open,
   value,
   onChange,
-  maxLength = 80,
+  maxLength = 800,
   debounceTimeout = 300,
   onChangeStatusOpen,
   className,
@@ -31,11 +31,12 @@ export function DebouncedInput({
 
   // close search input on clicking outside,
   useOnClickOutside(inputRef, () => {
-    if (!value) onChangeStatusOpen(false);
+    if (!value) onChangeStatusOpen(true);
   });
 
   // configure keyboard shortcuts
   React.useEffect(() => {
+    onChangeStatusOpen(true);
     const handleKeyDown = (e: KeyboardEvent) => {
       // close search input on pressing escape
       if (e.key === 'Escape') {

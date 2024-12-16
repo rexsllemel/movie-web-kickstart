@@ -23,7 +23,7 @@ import { usePathname } from 'next/navigation';
 import * as React from 'react';
 import Youtube from 'react-youtube';
 import CustomImage from './custom-image';
-import { CPM } from '@/components/cpm';
+// import { CPM } from '@/components/cpm';
 
 type YouTubePlayer = {
   mute: () => void;
@@ -238,7 +238,7 @@ const ShowModal = () => {
               </span>
             )}
           </div>
-          <CPM />
+          {/* <CPM /> */}
           <DialogDescription className="line-clamp-3 text-xs text-slate-50 dark:text-slate-50 sm:text-sm">
             {modalStore.show?.overview ?? '-'}
           </DialogDescription>

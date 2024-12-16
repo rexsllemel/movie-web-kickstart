@@ -5,7 +5,7 @@ import { buttonVariants } from '@/components/ui/button';
 // import { Icons } from "@/components/icons";
 import tealLogo from '/public/teal_logo.png';
 import Script from 'next/script';
-import { CPM } from '@/components/cpm';
+// import { CPM } from '@/components/cpm';
 
 const SiteFooter = () => {
   return (

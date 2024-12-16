@@ -78,6 +78,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="monetag" content="377deea6bf0bd93fa4f8dcee826d9ece" />
+      </head>
       <body
         className={cn(
           'overlflow-y-auto min-h-screen overflow-x-hidden bg-background font-sans antialiased',

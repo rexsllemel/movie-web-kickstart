@@ -45,7 +45,7 @@ const SiteFooter = () => {
               ),
           )}
         </ul> */}
-        <CPM />
+        {/* <CPM />
         <div className="fixed bottom-0 left-0 right-0 mt-4 flex items-center justify-center bg-white">
           <Script
             src="//www.highperformanceformat.com/8a147717f26470e2cbe6e10557afdf68/invoke.js"
@@ -62,7 +62,7 @@ const SiteFooter = () => {
             };
           `}
           </Script>
-        </div>
+        </div> */}
         <p className="text-xs text-foreground/60 sm:text-sm">
           @ {new Date().getFullYear()} {siteConfig.author}. This site does not
           store any files on our server, we only linked to the media which is
@@ -95,14 +95,14 @@ const SiteFooter = () => {
         </p>
       </div>
       {/* </div> */}
-      <div className="mx-auto mt-8 w-full max-w-[1200px]">
+      {/* <div className="mx-auto mt-8 w-full max-w-[1200px]">
         <iframe
           src="https://latelyninetyfeelings.com/esxakj3b?key=4fa27388d230df37216df8c1510e10ba"
           title="Embedded Content"
           className="h-[200px] w-full rounded-lg border"
           frameBorder="0"
           allowFullScreen></iframe>
-      </div>
+      </div> */}
     </footer>
   );
 };

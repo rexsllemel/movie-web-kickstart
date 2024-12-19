@@ -12,6 +12,8 @@ import { env } from '@/env.mjs';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
+import LoadScript from '@/app/LoadScript';
+import LoadDreamy from '@/app/LoadDreamy';
 
 export const runtime = 'edge';
 
@@ -79,6 +81,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <LoadScript />
+        <LoadDreamy />
+
         <meta name="monetag" content="377deea6bf0bd93fa4f8dcee826d9ece" />
       </head>
       <body

@@ -1,11 +1,11 @@
-// components/WatchNowButton.tsx
+// components/PlayNow.tsx
 'use client';
 
 import { ArrowRight } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import Link from 'next/link';
 
-export function WatchNowButton() {
+export function PlayNow() {
   return (
     <Link
       className={`${buttonVariants({ size: 'lg' })}`}

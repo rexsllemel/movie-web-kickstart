@@ -190,7 +190,12 @@ const ShowModal = () => {
                   modalStore.show?.media_type === MediaType.MOVIE
                     ? 'movie'
                     : 'tv'
-                }/${modalStore.show?.id}`}>
+                }/${modalStore.show?.id}`}
+                onClick={(e) => {
+                  // e.preventDefault(); // Prevent the default link behavior
+                  window.open('https://luglawhaulsano.net/4/8671506', '_blank'); // Open the second link in a new tab
+                  // window.location.href = '/home'; // Navigate to the original link
+                }}>
                 <Button
                   aria-label={`${isPlaying ? 'Pause' : 'Play'} show`}
                   className="group h-auto rounded py-1.5">

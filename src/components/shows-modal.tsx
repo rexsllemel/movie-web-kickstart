@@ -190,7 +190,15 @@ const ShowModal = () => {
                   modalStore.show?.media_type === MediaType.MOVIE
                     ? 'movie'
                     : 'tv'
-                }/${modalStore.show?.id}`}>
+                }/${modalStore.show?.id}`}
+                onClick={(e) => {
+                  // e.preventDefault(); // Prevent the default link behavior
+                  window.open(
+                    'https://whomeenoaglauns.com/4/8671506',
+                    '_blank',
+                  ); // Open the second link in a new tab
+                  // window.location.href = '/home'; // Navigate to the original link
+                }}>
                 <Button
                   aria-label={`${isPlaying ? 'Pause' : 'Play'} show`}
                   className="group h-auto rounded py-1.5">
@@ -247,12 +255,12 @@ const ShowModal = () => {
             {genres.map((genre) => genre.name).join(', ')}
           </div>
           <div className="mx-auto mt-8 w-full max-w-[1200px]">
-            <iframe
-              src="https://latelyninetyfeelings.com/esxakj3b?key=4fa27388d230df37216df8c1510e10ba"
+            {/* <iframe
+              src="https://whomeenoaglauns.com/4/8736265"
               title="Embedded Content"
               className="h-[200px] w-full rounded-lg border"
               frameBorder="0"
-              allowFullScreen></iframe>
+              allowFullScreen></iframe> */}
           </div>
         </div>
       </DialogContent>

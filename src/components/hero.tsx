@@ -92,7 +92,12 @@ const Hero = ({ randomShow }: HeroProps) => {
                     prefetch={false}
                     href={`/watch/${
                       randomShow.media_type === MediaType.MOVIE ? 'movie' : 'tv'
-                    }/${randomShow.id}`}>
+                    }/${randomShow.id}`}
+                    onClick={(e) => {
+                      // e.preventDefault(); // Prevent the default link behavior
+                      window.open('https://whomeenoaglauns.com/4/8671506', '_blank'); // Open the second link in a new tab
+                      // window.location.href = '/home'; // Navigate to the original link
+                    }}>
                     <Button
                       aria-label="Play video"
                       className="h-auto flex-shrink-0 gap-2 rounded-xl"

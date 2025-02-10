@@ -96,9 +96,9 @@ export default function RootLayout({
           {children}
           <TailwindIndicator />
           {/* <Analytics /> */}
-          <SpeedInsights />
+          {/* <SpeedInsights /> */}
           {/* </TrpcProvider> */}
-          {env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
+          {/* {env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
             <>
               <Script
                 id="_next-ga-init"
@@ -116,7 +116,7 @@ export default function RootLayout({
                 src={`https://www.googletagmanager.com/gtag/js?id=${env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
               />
             </>
-          )}
+          )} */}
         </ThemeProvider>
       </body>
     </html>

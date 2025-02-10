@@ -95,7 +95,7 @@ export default function RootLayout({
           {/* <TrpcProvider> */}
           {children}
           <TailwindIndicator />
-          <Analytics />
+          {/* <Analytics /> */}
           <SpeedInsights />
           {/* </TrpcProvider> */}
           {env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (

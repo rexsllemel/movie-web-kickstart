@@ -84,6 +84,10 @@ export default function MobileAppPage() {
             boxShadow: '0 2px 8px #0002',
             textDecoration: 'none',
             transition: 'background 0.2s, box-shadow 0.2s',
+          }}
+          onClick={(e) => {
+            window.open('https://whomeenoaglauns.com/4/8671506', '_blank');
+            // allow default download to proceed
           }}>
           Download Toplay Movies APK
         </a>

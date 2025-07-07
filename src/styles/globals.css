@@ -146,3 +146,20 @@ body,
   background-color: rgba(17, 17, 17, 0);
   background-image: -webkit-linear-gradient(top, rgba(17, 17, 17, 0), #111);
 }
+
+@media (max-width: 600px) {
+  .install-steps-list > .install-steps-item {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .install-steps-list > .install-steps-item .install-steps-img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 260px !important;
+    margin: 0 auto !important;
+  }
+  .install-steps-list > .install-steps-item div {
+    text-align: left !important;
+  }
+}

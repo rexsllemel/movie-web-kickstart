@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { siteConfig } from '@/configs/site';
 import { WatchNowButton } from '@/components/WatchNowButton';
 import Link from 'next/link';
+import { DownloadApp } from '@/components/DownloadApp';
 
 export default function Index() {
   return (
@@ -32,6 +33,11 @@ export default function Index() {
         </p>
         <div className="space-x-4">
           <WatchNowButton />
+          {/* <Link className={`${buttonVariants({ size: "lg", variant: "outline" })}`} href={siteConfig.links.github} target="_blank" */}
+          {/*   rel="noreferrer">GitHub</Link> */}
+        </div>
+        <div className="space-x-4">
+          <DownloadApp />
           {/* <Link className={`${buttonVariants({ size: "lg", variant: "outline" })}`} href={siteConfig.links.github} target="_blank" */}
           {/*   rel="noreferrer">GitHub</Link> */}
         </div>

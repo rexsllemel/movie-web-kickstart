@@ -101,6 +101,11 @@ export const siteConfig = {
       // icon: Icons.list,
     },
     {
+      title: 'Mobile App',
+      href: '/mobile-app',
+      // icon: Icons.list,
+    },
+    {
       title: 'Notifications',
       // onClick: () => alert("🛹 Do a kickflip"),
       // icon: Icons.bell,

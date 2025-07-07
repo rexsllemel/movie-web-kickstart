@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     creator: siteConfig.author,
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/images/icon.ico',
   },
   other: { referrer: 'no-referrer-when-downgrade' },
 };

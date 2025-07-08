@@ -1,13 +1,15 @@
-import { initializeApp, getApps, getApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAnV8-wcplsL_4qNNRzDUagRwSP-7OjXX4',
-  authDomain: 'toplaymovies-download-tracker.firebaseapp.com',
-  projectId: 'toplaymovies-download-tracker',
-  storageBucket: 'toplaymovies-download-tracker.firebasestorage.app',
-  messagingSenderId: '321163919714',
-  appId: '1:321163919714:web:79806f2735d4721703ec3b',
-  measurementId: 'G-4HW4NVQRD7',
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID, // ✅ added
 };
 
-export const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+export const app = !getApps().length
+  ? initializeApp(firebaseConfig)
+  : getApps()[0];

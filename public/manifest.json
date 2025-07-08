@@ -1,0 +1,15 @@
+{
+  "name": "To Play Movies",
+  "short_name": "ToPlay",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "description": "Watch and download free movies online like FMovies and 123Movies",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

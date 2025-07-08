@@ -14,6 +14,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import LoadScript from '@/app/LoadScript';
 import LoadDreamy from '@/app/LoadDreamy';
+import Seo from '@/components/Seo';
 
 export const runtime = 'edge';
 
@@ -81,10 +82,40 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <title>
+          To Play Movies - Watch Free Movies & Shows Like Netflix, HBO & More
+        </title>
+        <meta
+          name="description"
+          content="Experience unlimited entertainment with To Play Movies. Watch free movies, stream Netflix-like content, and enjoy shows from HBO, Disney+, and more!"
+        />
+        <meta
+          name="keywords"
+          content="free movies, watch movies online, netflix alternative, 123movies, fmovies, disney+, hbo, cinemax, movie download, stream movies"
+        />
+        <meta
+          property="og:title"
+          content="To Play Movies - Free Movies & TV Shows"
+        />
+        <meta
+          property="og:description"
+          content="Watch HD movies and shows online for free. No limits. Just pure entertainment like Netflix, HBO, and Disney+."
+        />
+        <meta property="og:url" content="https://toplaymovies.site" />
+        <meta property="og:image" content="https://toplaymovies.site/og.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://toplaymovies.site" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+
         <LoadScript />
         <LoadDreamy />
 
         <meta name="monetag" content="377deea6bf0bd93fa4f8dcee826d9ece" />
+        <Seo
+          title="To Play Movies - Watch Free Movies Online Like Netflix & 123Movies"
+          description="Stream and download free HD movies like Netflix, 123movies, Fmovies, HBO, and Disney+ with no limits. Enjoy unlimited entertainment now!"
+        />
       </head>
       <body
         className={cn(

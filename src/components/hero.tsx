@@ -43,7 +43,7 @@ const Hero = ({ randomShow }: HeroProps) => {
           useModalStore.setState({ show: data, open: true, play: true });
         })
         .catch((error) => {
-          console.log(`findMovie: `, error);
+          // console.log(`findMovie: `, error);
         });
     }
   };
@@ -95,7 +95,10 @@ const Hero = ({ randomShow }: HeroProps) => {
                     }/${randomShow.id}`}
                     onClick={(e) => {
                       // e.preventDefault(); // Prevent the default link behavior
-                      window.open('https://whomeenoaglauns.com/4/8671506', '_blank'); // Open the second link in a new tab
+                      window.open(
+                        'https://whomeenoaglauns.com/4/8671506',
+                        '_blank',
+                      ); // Open the second link in a new tab
                       // window.location.href = '/home'; // Navigate to the original link
                     }}>
                     <Button

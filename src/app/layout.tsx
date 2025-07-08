@@ -6,10 +6,10 @@ import '@/styles/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import localFont from 'next/font/local';
-import { Analytics } from '@/components/analytics';
+// import { Analytics } from '@/components/analytics';
 import { siteConfig } from '@/configs/site';
 import { env } from '@/env.mjs';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+// import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import LoadScript from '@/app/LoadScript';
@@ -82,24 +82,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>
-          To Play Movies - Watch Free Movies & Shows Like Netflix, HBO & More
-        </title>
+        <title>To Play Movies | Fmovies - Watch Free Movies Online</title>
         <meta
           name="description"
-          content="Experience unlimited entertainment with To Play Movies. Watch free movies, stream Netflix-like content, and enjoy shows from HBO, Disney+, and more!"
+          content="To Play Movies just like Fmovies is a file-sharing website that allows people to watch a wide range of movies and TV shows for free. Download our mobile app."
         />
         <meta
           name="keywords"
-          content="free movies, watch movies online, netflix alternative, 123movies, fmovies, disney+, hbo, cinemax, movie download, stream movies"
+          content="home of free movies, watch movies online, netflix alternative, 123movies, fmovies, disney+, hbo, cinemax, movie download, stream movies, download mobile app"
         />
         <meta
           property="og:title"
-          content="To Play Movies - Free Movies & TV Shows"
+          content="To Play Movies - Watch Movies & TV Shows"
         />
         <meta
           property="og:description"
-          content="Watch HD movies and shows online for free. No limits. Just pure entertainment like Netflix, HBO, and Disney+."
+          content="Watch movies and shows online. Pure entertainment movies $ TV Shows."
         />
         <meta property="og:url" content="https://toplaymovies.site" />
         <meta property="og:image" content="https://toplaymovies.site/og.jpg" />
@@ -113,8 +111,8 @@ export default function RootLayout({
 
         <meta name="monetag" content="377deea6bf0bd93fa4f8dcee826d9ece" />
         <Seo
-          title="To Play Movies - Watch Free Movies Online Like Netflix & 123Movies"
-          description="Stream and download free HD movies like Netflix, 123movies, Fmovies, HBO, and Disney+ with no limits. Enjoy unlimited entertainment now!"
+          title="To Play Movies - Watch Free Movies Online"
+          description="To Play Movies just like Fmovies is a file-sharing website that allows people to watch a wide range of movies and TV shows for free."
         />
       </head>
       <body
@@ -131,8 +129,8 @@ export default function RootLayout({
           {/* <TrpcProvider> */}
           {children}
           <TailwindIndicator />
-          <Analytics />
-          <SpeedInsights />
+          {/* <Analytics /> */}
+          {/* <SpeedInsights /> */}
           {/* </TrpcProvider> */}
           {env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
             <>

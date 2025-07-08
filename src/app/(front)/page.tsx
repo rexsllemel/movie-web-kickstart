@@ -1,9 +1,6 @@
-import { Icons } from '@/components/icons';
-import { Badge } from '@/components/ui/badge';
 import { siteConfig } from '@/configs/site';
 import { WatchNowButton } from '@/components/WatchNowButton';
-import Link from 'next/link';
-import { DownloadApp } from '@/components/DownloadApp';
+import { PreDownload } from '@/components/PreDownload';
 
 export default function Index() {
   return (
@@ -37,7 +34,7 @@ export default function Index() {
           {/*   rel="noreferrer">GitHub</Link> */}
         </div>
         <div className="space-x-4">
-          <DownloadApp />
+          <PreDownload />
           {/* <Link className={`${buttonVariants({ size: "lg", variant: "outline" })}`} href={siteConfig.links.github} target="_blank" */}
           {/*   rel="noreferrer">GitHub</Link> */}
         </div>

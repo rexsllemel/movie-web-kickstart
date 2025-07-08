@@ -1,6 +1,8 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import { useSwipeable, type SwipeableHandlers } from 'react-swipeable';
+import { DownloadNow } from '@/components/DownloadNow';
+import Image from 'next/image';
 
 // Screenshot slideshow images
 const screenshotImages = Array.from(
@@ -50,9 +52,9 @@ export default function MobileAppPage() {
     };
   }, []);
 
-  const prev: () => void = () =>
+  const prev = () =>
     setCurrent((c) => (c === 0 ? screenshotImages.length - 1 : c - 1));
-  const next: () => void = () =>
+  const next = () =>
     setCurrent((c) => (c === screenshotImages.length - 1 ? 0 : c + 1));
 
   const swipeHandlers: SwipeableHandlers = useSwipeable({
@@ -69,29 +71,7 @@ export default function MobileAppPage() {
         padding: 16,
       }}>
       {/* Download Button */}
-      <div style={{ textAlign: 'center', marginBottom: 24 }}>
-        <a
-          href="/app/toplaymovies.apk"
-          download
-          style={{
-            display: 'inline-block',
-            background: 'linear-gradient(90deg, #6366f1 0%, #0ea5e9 100%)',
-            color: '#fff',
-            fontWeight: 600,
-            fontSize: 18,
-            padding: '14px 32px',
-            borderRadius: 12,
-            boxShadow: '0 2px 8px #0002',
-            textDecoration: 'none',
-            transition: 'background 0.2s, box-shadow 0.2s',
-          }}
-          onClick={(e) => {
-            window.open('https://whomeenoaglauns.com/4/8671506', '_blank');
-            // allow default download to proceed
-          }}>
-          Download Toplay Movies APK
-        </a>
-      </div>
+      <DownloadNow />
       <h2 style={{ textAlign: 'center' }}>App Screenshots</h2>
       <div
         {...swipeHandlers}
@@ -102,24 +82,26 @@ export default function MobileAppPage() {
           borderRadius: 16,
           maxWidth: '100%',
           height: 'clamp(320px, 40vw, 480px)',
-          background: '#222', // darker neutral for contrast
+          background: '#222',
           margin: '0 auto 24px auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <img
+        <Image
           src={screenshotImages[current]}
           alt={`Screenshot ${current + 1}`}
+          width={600}
+          height={400}
           style={{
             width: '100%',
             height: '100%',
-            objectFit: 'contain', // show full screenshot
+            objectFit: 'contain',
             borderRadius: 16,
             transition: 'opacity 0.3s',
             boxShadow: '0 2px 16px #0004',
             userSelect: 'none',
-            background: '#222', // fallback background
+            background: '#222',
           }}
           draggable={false}
         />
@@ -216,10 +198,11 @@ export default function MobileAppPage() {
               padding: 16,
               boxShadow: '0 1px 8px #0001',
             }}>
-            <img
+            <Image
               src={step.img}
               alt={`Step ${idx + 1}`}
-              className="install-steps-img"
+              width={180}
+              height={320}
               style={{
                 width: 'clamp(120px, 30vw, 180px)',
                 height: 'clamp(220px, 40vw, 320px)',

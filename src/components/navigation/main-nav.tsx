@@ -10,7 +10,6 @@ import {
   handleDefaultSearchInp,
 } from '@/lib/utils';
 import { siteConfig } from '@/configs/site';
-// import { Icons } from '@/components/icons';
 import tealLogo from '/public/teal_logo.png';
 import {
   DropdownMenu,

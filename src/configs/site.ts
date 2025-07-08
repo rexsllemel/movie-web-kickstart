@@ -95,7 +95,7 @@ export const siteConfig = {
       // icon: Icons.list,
     },
     {
-      title: 'Mobile App',
+      title: 'Download App Now',
       href: '/mobile-app',
       // icon: Icons.list,
     },

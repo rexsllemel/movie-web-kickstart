@@ -49,7 +49,7 @@ export function DownloadNow() {
         Download NOW <ArrowDownToLine className="ml-1 inline-block" />
       </Link>
       <div style={{ fontSize: 13, color: '#888', marginTop: 6 }}>
-        Latest version &bull; Safe &amp; direct download
+        Latest version &bull; Safe &amp; direct download &bull; No Pop up ads
       </div>
     </div>
   );

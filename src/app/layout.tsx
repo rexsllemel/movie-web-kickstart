@@ -14,7 +14,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import LoadScript from '@/app/LoadScript';
 import LoadDreamy from '@/app/LoadDreamy';
-import Seo from '@/components/Seo';
+// import Seo from '@/components/Seo';
 
 export const runtime = 'edge';
 
@@ -110,10 +110,10 @@ export default function RootLayout({
         <LoadDreamy />
 
         <meta name="monetag" content="377deea6bf0bd93fa4f8dcee826d9ece" />
-        <Seo
+        {/* <Seo
           title="To Play Movies - Watch Free Movies Online"
           description="To Play Movies just like Fmovies is a file-sharing website that allows people to watch a wide range of movies and TV shows for free."
-        />
+        /> */}
       </head>
       <body
         className={cn(
@@ -132,6 +132,7 @@ export default function RootLayout({
           {/* <Analytics /> */}
           {/* <SpeedInsights /> */}
           {/* </TrpcProvider> */}
+
           {env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID && (
             <>
               <Script

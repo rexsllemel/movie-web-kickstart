@@ -68,11 +68,20 @@ export default async function Home() {
       visible: true,
     },
     {
-      title: 'Scary Movies',
+      title: 'Thriller Movies',
       req: {
         requestType: RequestType.GENRE,
         mediaType: MediaType.MOVIE,
         genre: Genre.THRILLER,
+      },
+      visible: true,
+    },
+    {
+      title: 'Horror Movies',
+      req: {
+        requestType: RequestType.GENRE,
+        mediaType: MediaType.MOVIE,
+        genre: Genre.HORROR,
       },
       visible: true,
     },

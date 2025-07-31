@@ -55,11 +55,20 @@ export default async function MoviePage() {
       visible: true,
     },
     {
-      title: 'Scary Movies',
+      title: 'Thriller Movies',
       req: {
         requestType: RequestType.GENRE,
         mediaType: MediaType.MOVIE,
         genre: Genre.THRILLER,
+      },
+      visible: true,
+    },
+    {
+      title: 'Horror Movies',
+      req: {
+        requestType: RequestType.GENRE,
+        mediaType: MediaType.MOVIE,
+        genre: Genre.HORROR,
       },
       visible: true,
     },

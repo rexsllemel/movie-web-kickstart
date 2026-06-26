@@ -12,7 +12,7 @@ export function WatchNowButton() {
       href="/home"
       onClick={(e) => {
         e.preventDefault(); // Prevent the default link behavior
-        window.open('https://whomeenoaglauns.com/4/8736265', '_blank'); // Open the second link in a new tab
+        window.open('https://omg10.com/4/11204670', '_blank'); // Open the second link in a new tab
         window.location.href = '/home'; // Navigate to the original link
       }}>
       Watch Now <ArrowRight className="ml-1 inline-block" />

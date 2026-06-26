@@ -79,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="monetag" content="377deea6bf0bd93fa4f8dcee826d9ece" />
+        <meta name="monetag" content="52eeb41ba7db02fcf547f5164d28c8dc" />
       </head>
       <body
         className={cn(

@@ -51,10 +51,12 @@ const ShowsCarousel = ({ title, shows }: ShowsCarouselProps) => {
   };
 
   return (
-    <section aria-label="Carousel of shows" className="relative my-[3vw] p-0">
+    <section
+      aria-label="Carousel of shows"
+      className="relative my-8 p-0 sm:my-10">
       {shows.length !== 0 && (
-        <div className="space-y-1 sm:space-y-2.5">
-          <h2 className="m-0 px-[4%] text-lg font-semibold text-foreground/80 transition-colors hover:text-foreground sm:text-xl 2xl:px-[60px]">
+        <div className="space-y-3 sm:space-y-4">
+          <h2 className="m-0 px-[4%] font-heading text-xl text-foreground transition-colors sm:text-2xl 2xl:px-[60px]">
             {title ?? '-'}
           </h2>
           <div className="relative w-full items-center justify-center overflow-hidden">
@@ -62,7 +64,7 @@ const ShowsCarousel = ({ title, shows }: ShowsCarouselProps) => {
               aria-label="Scroll to left"
               variant="ghost"
               className={cn(
-                'absolute left-0 top-0 z-10 mr-2 hidden h-full w-[4%] items-center justify-center rounded-l-none bg-transparent py-0 text-transparent hover:bg-secondary/90 hover:text-foreground md:block 2xl:w-[60px]',
+                'absolute left-0 top-0 z-10 mr-2 hidden h-full w-[4%] items-center justify-center rounded-none bg-gradient-to-r from-background via-background/70 to-transparent py-0 text-transparent hover:text-primary md:block 2xl:w-[60px]',
                 isScrollable ? 'md:block' : 'md:hidden',
               )}
               onClick={() => scrollToDirection('left')}>
@@ -70,7 +72,7 @@ const ShowsCarousel = ({ title, shows }: ShowsCarouselProps) => {
             </Button>
             <div
               ref={showsRef}
-              className="no-scrollbar m-0 grid auto-cols-[calc(100%/3)] grid-flow-col overflow-x-auto overflow-y-hidden px-[4%] py-0 duration-500 ease-in-out sm:auto-cols-[25%] md:touch-pan-y lg:auto-cols-[20%] xl:auto-cols-[calc(100%/6)] 2xl:px-[60px]">
+              className="no-scrollbar m-0 grid auto-cols-[42%] grid-flow-col gap-3 overflow-x-auto overflow-y-hidden px-[4%] py-1 duration-500 ease-in-out xs:auto-cols-[34%] sm:auto-cols-[25%] md:touch-pan-y lg:auto-cols-[20%] xl:auto-cols-[15.5%] 2xl:px-[60px]">
               {shows.map((show) => (
                 <ShowCard key={show.id} show={show} pathname={pathname} />
               ))}
@@ -78,7 +80,7 @@ const ShowsCarousel = ({ title, shows }: ShowsCarouselProps) => {
             <Button
               aria-label="Scroll to right"
               variant="ghost"
-              className="absolute right-0 top-0 z-10 m-0 ml-2 hidden h-full w-[4%] items-center justify-center rounded-r-none bg-transparent py-0 text-transparent hover:bg-secondary/70 hover:text-foreground md:block 2xl:w-[60px]"
+              className="absolute right-0 top-0 z-10 m-0 ml-2 hidden h-full w-[4%] items-center justify-center rounded-none bg-gradient-to-l from-background via-background/70 to-transparent py-0 text-transparent hover:text-primary md:block 2xl:w-[60px]"
               onClick={() => scrollToDirection('right')}>
               <Icons.chevronRight className="h-8 w-8" aria-hidden="true" />
             </Button>
@@ -99,8 +101,7 @@ export const ShowCard = ({ show }: { show: Show; pathname: string }) => {
   };
 
   return (
-    // <picture className="relative aspect-[2/3] md:aspect-video">
-    <picture className="relative aspect-[2/3]">
+    <picture className="group relative block aspect-[2/3] overflow-hidden rounded-xl border border-white/10 bg-card shadow-xl shadow-black/25">
       <a
         className="pointer-events-none"
         aria-hidden={false}
@@ -128,7 +129,7 @@ export const ShowCard = ({ show }: { show: Show; pathname: string }) => {
             : '/images/grey-thumbnail.jpg'
         }
         alt={show.title ?? show.name ?? 'poster'}
-        className="h-full w-full cursor-pointer rounded-lg px-1 transition-all md:hover:scale-110"
+        className="h-full w-full cursor-pointer rounded-xl transition duration-300 group-hover:scale-105"
         fill
         sizes="(max-width: 768px) 50vw, (max-width: 1200px) 100vw, 33vw"
         style={{
@@ -151,6 +152,11 @@ export const ShowCard = ({ show }: { show: Show; pathname: string }) => {
         }}
         onError={imageOnErrorHandler}
       />
+      <span className="min-h-20 via-black/35 pointer-events-none absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-black/90 to-transparent p-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <span className="line-clamp-2 text-sm font-semibold leading-tight text-white">
+          {getNameFromShow(show)}
+        </span>
+      </span>
     </picture>
   );
 };

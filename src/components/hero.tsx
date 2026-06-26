@@ -57,37 +57,50 @@ const Hero = ({ randomShow }: HeroProps) => {
   }
 
   return (
-    <section aria-label="Hero" className="w-full">
+    <section aria-label="Hero" className="relative w-full overflow-hidden">
       {randomShow && (
         <>
-          <div className="absolute inset-0 z-0 h-[100vw] w-full sm:h-[56.25vw]">
+          <div className="absolute inset-0 z-0 h-[82vh] min-h-[560px] w-full sm:h-[76vh]">
             <CustomImage
               src={`https://image.tmdb.org/t/p/original${
                 randomShow?.backdrop_path ?? randomShow?.poster_path ?? ''
               }`}
               alt={randomShow?.title ?? 'poster'}
-              className="-z-40 h-auto w-full object-cover"
-              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 100vw, 33vw"
+              className="-z-40 h-full w-full scale-105 object-cover"
+              sizes="100vw"
               fill
               priority
             />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(245,196,81,0.16),transparent_24rem)]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-black/30" />
             <div className="absolute bottom-0 left-0 right-0 top-0">
-              <div className="absolute bottom-[35%] left-[4%] top-0 z-10 flex w-[36%] flex-col justify-end space-y-2">
-                <h1 className="text-[3vw] font-bold">
+              <div className="absolute inset-x-[4vw] bottom-[16%] z-10 flex max-w-2xl flex-col justify-end space-y-5 sm:bottom-[18%]">
+                <div className="bg-black/35 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary backdrop-blur-md">
+                  Featured tonight
+                </div>
+                <h1 className="text-balance font-heading text-4xl leading-[0.95] text-foreground drop-shadow-2xl sm:text-5xl md:text-6xl lg:text-7xl">
                   {randomShow?.title ?? randomShow?.name}
                 </h1>
-                <div className="flex space-x-2 text-[2vw] font-semibold md:text-[1.2vw]">
-                  <p className="text-green-600">
+                <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-foreground/80 sm:text-base">
+                  <p className="bg-primary/15 rounded-full px-3 py-1 text-primary">
                     {Math.round(randomShow?.vote_average * 10) ?? '-'}% Match
                   </p>
                   {/* <p className="text-gray-300">{randomShow?.release_date ?? "-"}</p> */}
-                  <p>{randomShow?.release_date ?? '-'}</p>
+                  <p className="rounded-full bg-white/10 px-3 py-1">
+                    {randomShow?.release_date ?? '-'}
+                  </p>
+                  {randomShow?.original_language && (
+                    <p className="rounded-full border border-white/10 px-3 py-1 uppercase">
+                      {randomShow.original_language}
+                    </p>
+                  )}
                 </div>
                 {/* <p className="line-clamp-4 text-sm text-gray-300 md:text-base"> */}
-                <p className="hidden text-[1.2vw] sm:line-clamp-3">
+                <p className="line-clamp-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
                   {randomShow?.overview ?? '-'}
                 </p>
-                <div className="mt-[1.5vw] flex items-center space-x-2">
+                <div className="flex flex-wrap items-center gap-3 pt-1">
                   <Link
                     prefetch={false}
                     href={`/watch/${
@@ -103,7 +116,7 @@ const Hero = ({ randomShow }: HeroProps) => {
                     }}>
                     <Button
                       aria-label="Play video"
-                      className="h-auto flex-shrink-0 gap-2 rounded-xl"
+                      className="h-12 flex-shrink-0 gap-2 rounded-full bg-primary px-6 font-bold text-primary-foreground shadow-xl shadow-primary/20 hover:bg-primary/90"
                       // onClick={() => {
                       //   modalStore.setShow(randomShow);
                       //   modalStore.setOpen(true);
@@ -117,7 +130,7 @@ const Hero = ({ randomShow }: HeroProps) => {
                   <Button
                     aria-label="Open show's details modal"
                     variant="outline"
-                    className="h-auto flex-shrink-0 gap-2 rounded-xl"
+                    className="border-white/15 hover:bg-white/15 h-12 flex-shrink-0 gap-2 rounded-full bg-white/10 px-6 font-semibold text-foreground backdrop-blur-md hover:text-foreground"
                     onClick={() => {
                       modalStore.setShow(randomShow);
                       modalStore.setOpen(true);
@@ -129,10 +142,9 @@ const Hero = ({ randomShow }: HeroProps) => {
                 </div>
               </div>
             </div>{' '}
-            <div className="opacity-71 absolute inset-0 right-[26.09%] z-[8] bg-gradient-to-r from-secondary to-85%"></div>
-            <div className="absolute bottom-[-1px] left-0 right-0 z-[8] h-[14.7vw] bg-gradient-to-b from-background/0 from-30% via-background/30 via-50% to-background to-80%"></div>
+            <div className="absolute bottom-[-1px] left-0 right-0 z-[8] h-40 bg-gradient-to-b from-background/0 via-background/70 to-background"></div>
           </div>
-          <div className="relative inset-0 -z-50 mb-5 pb-[60%] sm:pb-[40%]"></div>
+          <div className="relative inset-0 -z-50 h-[82vh] min-h-[560px] sm:h-[76vh]"></div>
         </>
       )}
     </section>

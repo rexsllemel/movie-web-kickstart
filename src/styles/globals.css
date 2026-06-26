@@ -23,65 +23,65 @@ body,
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 225 25% 3%;
+    --foreground: 42 27% 89%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 24% 8%;
+    --card-foreground: 42 27% 89%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 24% 8%;
+    --popover-foreground: 42 27% 89%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 90% 64%;
+    --primary-foreground: 225 25% 3%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 221 22% 12%;
+    --secondary-foreground: 42 27% 89%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 16%;
+    --muted-foreground: 30 6% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 355 64% 54%;
+    --accent-foreground: 42 27% 89%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 222 18% 17%;
+    --input: 222 18% 17%;
+    --ring: 45 90% 64%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 210 11% 15%; /* Dark grayish blue */
-    --foreground: 0 0% 100%; /* White */
+    --background: 225 25% 3%;
+    --foreground: 42 27% 89%;
 
-    --card: 210 11% 18%; /* Slightly lighter dark grayish blue */
-    --card-foreground: 0 0% 100%; /* White */
+    --card: 222 24% 8%;
+    --card-foreground: 42 27% 89%;
 
-    --popover: 210 11% 18%; /* Same as card */
-    --popover-foreground: 0 0% 100%; /* White */
+    --popover: 222 24% 8%;
+    --popover-foreground: 42 27% 89%;
 
-    --primary: 210 11% 40%; /* Medium grayish blue */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 45 90% 64%;
+    --primary-foreground: 225 25% 3%;
 
-    --secondary: 210 11% 25%; /* Darker grayish blue */
-    --secondary-foreground: 0 0% 100%; /* White */
+    --secondary: 221 22% 12%;
+    --secondary-foreground: 42 27% 89%;
 
-    --muted: 210 11% 25%; /* Same as secondary */
-    --muted-foreground: 0 0% 85%; /* Light gray */
+    --muted: 220 15% 16%;
+    --muted-foreground: 30 6% 65%;
 
-    --accent: 210 11% 40%; /* Medium grayish blue */
-    --accent-foreground: 0 0% 100%; /* White */
+    --accent: 355 64% 54%;
+    --accent-foreground: 42 27% 89%;
 
     --destructive: 0 60% 40%; /* Dark red (unchanged) */
     --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: 210 11% 25%; /* Darker grayish blue */
-    --input: 210 11% 25%; /* Same as border */
-    --ring: 220 11% 55%; /* Light blue-gray */
+    --border: 222 18% 17%;
+    --input: 222 18% 17%;
+    --ring: 45 90% 64%;
   }
 }
 
@@ -92,16 +92,58 @@ body,
 
   body {
     @apply bg-background text-foreground;
+    background: radial-gradient(
+        circle at top left,
+        rgba(211, 63, 73, 0.16),
+        transparent 34rem
+      ),
+      radial-gradient(
+        circle at 80% 10%,
+        rgba(245, 196, 81, 0.08),
+        transparent 30rem
+      ),
+      linear-gradient(180deg, #06070a 0%, #10131a 48%, #06070a 100%);
+  }
+
+  ::selection {
+    background: rgba(245, 196, 81, 0.32);
+    color: #fff7dc;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .cinema-panel {
+    @apply border border-white/10 bg-card/80 shadow-2xl shadow-black/30 backdrop-blur-xl;
+  }
+
+  .cinema-focus {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 .video-wrapper {
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
+  overflow: hidden;
 
   /* Keep it the right aspect-ratio */
   aspect-ratio: 16/9;
@@ -134,17 +176,6 @@ body,
   background: -o-radial-gradient(center, ellipse cover, transparent 10%, #000 100%);
   background: -ms-radial-gradient(center, ellipse cover, transparent 10%, #000 100%);
   background: radial-gradient(ellipse at center, transparent 10%, #000 100%); */
-}
-
-.video-wrapper:after {
-  position: absolute;
-  z-index: 1;
-  content: '';
-  bottom: -2px;
-  width: 100%;
-  height: 150px;
-  background-color: rgba(17, 17, 17, 0);
-  background-image: -webkit-linear-gradient(top, rgba(17, 17, 17, 0), #111);
 }
 
 @media (max-width: 600px) {

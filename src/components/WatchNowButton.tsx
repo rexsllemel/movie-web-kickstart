@@ -8,7 +8,11 @@ import Link from 'next/link';
 export function WatchNowButton() {
   return (
     <Link
-      className={`${buttonVariants({ size: 'lg' })}`}
+      className={`${buttonVariants({
+        size: 'lg',
+        className:
+          'rounded-full bg-primary px-7 font-bold text-primary-foreground shadow-xl shadow-primary/20 hover:bg-primary/90',
+      })}`}
       href="/home"
       onClick={(e) => {
         e.preventDefault(); // Prevent the default link behavior

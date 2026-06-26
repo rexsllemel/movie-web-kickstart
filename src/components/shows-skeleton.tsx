@@ -27,10 +27,10 @@ const ShowsSkeleton = ({
             'no-scrollbar container mx-0 w-full max-w-[100%] overflow-x-auto overflow-y-hidden',
             classname,
           )}>
-          <Skeleton className="h-[1.62rem] w-28 rounded bg-neutral-700" />
+          <Skeleton className="h-7 w-40 rounded-full bg-white/10" />
           <div
             className={cn(
-              'xxs:grid-cols-2 xxs:gap-x-1.5 xxs:gap-y-5 mt-2.5 grid w-fit gap-y-3.5 xs:grid-cols-3 xs:gap-y-7 sm:grid-cols-3 sm:gap-y-10 md:grid-cols-4 md:gap-y-12 lg:gap-y-14 xl:grid-cols-6 xl:gap-y-16',
+              'xxs:grid-cols-2 mt-5 grid w-fit gap-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-4 xl:grid-cols-6',
               searchStore.query && 'max-sm:grid-cols-3 max-[375px]:grid-cols-2',
             )}
             // initial="hidden"
@@ -40,7 +40,7 @@ const ShowsSkeleton = ({
             {Array.from({ length: count }, (_, i) => (
               <motion.div key={i} variants={itemFade}>
                 {/* <picture className="relative aspect-[2/3] md:aspect-video"> */}
-                <picture className="relative aspect-[2/3]">
+                <picture className="relative block aspect-[2/3] overflow-hidden rounded-xl border border-white/10 bg-card shadow-xl shadow-black/25">
                   {/* <source */}
                   {/*   media="(min-width: 780px)" */}
                   {/*   srcSet={'/images/grey-thumbnail.jpg'} */}
@@ -50,9 +50,10 @@ const ShowsSkeleton = ({
                     src={'/images/grey-thumbnail.jpg'}
                     fill={true}
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 100vw, 33vw"
-                    className="h-full w-full cursor-pointer rounded-lg px-1 transition-all md:hover:scale-110"
+                    className="h-full w-full rounded-xl opacity-40"
                     style={{ objectFit: 'cover' }}
                   />
+                  <span className="absolute inset-0 animate-pulse bg-white/5" />
                 </picture>
               </motion.div>
             ))}
@@ -60,13 +61,13 @@ const ShowsSkeleton = ({
         </div>
       ) : (
         <motion.div
-          className="no-scrollbar container mx-0 flex w-full items-center gap-1.5 overflow-x-auto overflow-y-hidden"
+          className="no-scrollbar container mx-0 flex w-full items-center gap-3 overflow-x-auto overflow-y-hidden"
           initial="hidden"
           animate="visible"
           variants={itemsReveal}>
           {Array.from({ length: count }, (_, i) => (
             <motion.div key={i} variants={itemFade}>
-              <Skeleton className="aspect-[2/3] min-w-[15rem] rounded bg-neutral-700" />
+              <Skeleton className="aspect-[2/3] min-w-[12rem] rounded-xl border border-white/10 bg-white/10" />
             </motion.div>
           ))}
         </motion.div>

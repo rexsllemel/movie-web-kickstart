@@ -25,6 +25,7 @@ import { useSearchStore } from '@/stores/search';
 import { ModeToggle as ThemeToggle } from '@/components/theme-toggle';
 import { DebouncedInput } from '@/components/debounced-input';
 import MovieService from '@/services/MovieService';
+import { Download, Menu } from 'lucide-react';
 
 interface MainNavProps {
   items?: NavItem[];
@@ -120,22 +121,28 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <nav
       className={cn(
-        'relative flex h-12 w-full items-center justify-between bg-gradient-to-b from-secondary/70 from-10% px-[4vw] transition-colors duration-300 md:sticky md:h-16',
-        isScrolled ? 'bg-secondary shadow-md' : 'bg-transparent',
+        'relative flex h-16 w-full items-center justify-between border-b px-[4vw] transition-all duration-300 md:sticky',
+        isScrolled
+          ? 'bg-[#06070A]/92 border-white/10 shadow-2xl shadow-black/30 backdrop-blur-xl'
+          : 'via-black/35 border-transparent bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm',
       )}>
-      <div className="flex items-center gap-6 md:gap-10">
+      <div className="flex min-w-0 items-center gap-4 md:gap-8">
         <Link
           href="/"
-          className="hidden md:block"
+          className="cinema-focus hidden shrink-0 rounded-full md:block"
           onClick={() => handleChangeStatusOpen(false)}>
-          <div className="flex items-center space-x-2">
-            <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
-            <span className="inline-block font-bold">{siteConfig.name}</span>
+          <div className="flex items-center gap-2">
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-primary/30 bg-primary/10 shadow-lg shadow-primary/10">
+              <img src={tealLogo.src} alt="Logo" className="h-5 w-5" />
+            </span>
+            <span className="inline-block max-w-[180px] truncate font-heading text-base text-foreground">
+              {siteConfig.name}
+            </span>
             <span className="sr-only">Home</span>
           </div>
         </Link>
         {items?.length ? (
-          <nav className="hidden gap-6 md:flex">
+          <nav className="hidden items-center gap-1 md:flex">
             {items?.map(
               (item, index) =>
                 item.href && (
@@ -143,11 +150,17 @@ export function MainNav({ items }: MainNavProps) {
                     key={index}
                     href={item.href}
                     className={cn(
-                      'flex items-center text-sm font-medium text-foreground/60 transition hover:text-foreground/80',
-                      path === item.href && 'font-bold text-foreground',
+                      'cinema-focus flex h-9 items-center rounded-full px-3 text-sm font-medium text-foreground/60 transition hover:bg-white/10 hover:text-foreground',
+                      path === item.href &&
+                        'bg-white/10 font-semibold text-foreground shadow-inner shadow-white/5',
+                      item.href === '/mobile-app' &&
+                        'ml-1 border border-primary/25 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground',
                       item.disabled && 'cursor-not-allowed opacity-80',
                     )}
                     onClick={() => handleChangeStatusOpen(false)}>
+                    {item.href === '/mobile-app' && (
+                      <Download className="mr-1.5 h-3.5 w-3.5" />
+                    )}
                     {item.title}
                   </Link>
                 ),
@@ -159,19 +172,20 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex items-center space-x-2 px-0 hover:bg-transparent focus:ring-0">
-                <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
-                <span className="text-base font-bold">Menu</span>
+                className="flex h-10 items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 hover:bg-white/10 focus:ring-0">
+                <img src={tealLogo.src} alt="Logo" className="h-5 w-5" />
+                <span className="text-sm font-semibold">Menu</span>
+                <Menu className="h-4 w-4 text-primary" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="start"
               sideOffset={20}
-              className="w-52 overflow-y-auto overflow-x-hidden rounded-sm">
+              className="cinema-panel w-60 overflow-y-auto overflow-x-hidden rounded-lg p-2">
               <DropdownMenuLabel>
                 <Link
                   href="/"
-                  className="flex items-center justify-center"
+                  className="flex items-center justify-center rounded-md py-2 font-heading"
                   onClick={() => handleChangeStatusOpen(false)}>
                   <span className="">{siteConfig.name}</span>
                 </Link>
@@ -181,15 +195,15 @@ export function MainNav({ items }: MainNavProps) {
                 <DropdownMenuItem
                   key={index}
                   asChild
-                  className="items-center justify-center">
+                  className="items-center justify-center rounded-md focus:bg-white/10">
                   {item.href && (
                     <Link
                       href={item.href}
                       onClick={() => handleChangeStatusOpen(false)}>
                       <span
                         className={cn(
-                          'line-clamp-1 text-foreground/60 hover:text-foreground/80',
-                          path === item.href && 'font-bold text-foreground',
+                          'line-clamp-1 text-foreground/70 hover:text-foreground',
+                          path === item.href && 'font-bold text-primary',
                         )}>
                         {item.title}
                       </span>
@@ -201,7 +215,7 @@ export function MainNav({ items }: MainNavProps) {
           </DropdownMenu>
         </div>
       </div>
-      <div className="flex items-center gap-1">
+      <div className="flex shrink-0 items-center gap-2">
         <DebouncedInput
           id="search-input"
           open={searchStore.isOpen}

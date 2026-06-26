@@ -1,16 +1,16 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import { useSwipeable, type SwipeableHandlers } from 'react-swipeable';
-import { DownloadNow } from '@/components/DownloadNow';
-import Image from 'next/image';
 
-// Screenshot slideshow images
+import { DownloadNow } from '@/components/DownloadNow';
+import { ChevronLeft, ChevronRight, Smartphone } from 'lucide-react';
+import Image from 'next/image';
+import React, { useEffect, useRef, useState } from 'react';
+import { useSwipeable, type SwipeableHandlers } from 'react-swipeable';
+
 const screenshotImages = Array.from(
   { length: 8 },
   (_, i) => `/images/screenshots/${i + 1}.jpg`,
 );
 
-// Instruction images and descriptions
 const instructionSteps = [
   {
     img: '/images/instructions/1.jpg',
@@ -42,7 +42,6 @@ export default function MobileAppPage() {
   const [current, setCurrent] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play carousel
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrent((c) => (c + 1) % screenshotImages.length);
@@ -64,168 +63,98 @@ export default function MobileAppPage() {
   });
 
   return (
-    <div
-      style={{
-        maxWidth: 600,
-        margin: '0 auto',
-        padding: 16,
-      }}>
-      {/* Download Button */}
-      <DownloadNow />
-      <h2 style={{ textAlign: 'center' }}>App Screenshots</h2>
-      <div
-        {...swipeHandlers}
-        style={{
-          position: 'relative',
-          textAlign: 'center',
-          overflow: 'hidden',
-          borderRadius: 16,
-          maxWidth: '100%',
-          height: 'clamp(320px, 40vw, 480px)',
-          background: '#222',
-          margin: '0 auto 24px auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Image
-          src={screenshotImages[current]}
-          alt={`Screenshot ${current + 1}`}
-          width={600}
-          height={400}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            borderRadius: 16,
-            transition: 'opacity 0.3s',
-            boxShadow: '0 2px 16px #0004',
-            userSelect: 'none',
-            background: '#222',
-          }}
-          draggable={false}
-        />
-        <button
-          onClick={prev}
-          style={{
-            position: 'absolute',
-            left: 8,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            background: '#fff8',
-            border: 'none',
-            borderRadius: '50%',
-            width: 40,
-            height: 40,
-            cursor: 'pointer',
-            fontSize: 24,
-            zIndex: 2,
-            boxShadow: '0 1px 4px #0002',
-          }}
-          aria-label="Previous">
-          ‹
-        </button>
-        <button
-          onClick={next}
-          style={{
-            position: 'absolute',
-            right: 8,
-            top: '50%',
-            transform: 'translateY(-50%)',
-            background: '#fff8',
-            border: 'none',
-            borderRadius: '50%',
-            width: 40,
-            height: 40,
-            cursor: 'pointer',
-            fontSize: 24,
-            zIndex: 2,
-            boxShadow: '0 1px 4px #0002',
-          }}
-          aria-label="Next">
-          ›
-        </button>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 12,
-            left: 0,
-            right: 0,
-            display: 'flex',
-            justifyContent: 'center',
-            gap: 6,
-          }}>
-          {screenshotImages.map((_, i) => (
-            <span
-              key={i}
-              style={{
-                display: 'inline-block',
-                width: 12,
-                height: 12,
-                borderRadius: '50%',
-                background: i === current ? '#fff' : '#8888',
-                border: i === current ? '2px solid #333' : 'none',
-                transition: 'background 0.2s',
-                cursor: 'pointer',
-              }}
-              onClick={() => setCurrent(i)}
-            />
-          ))}
+    <div className="container max-w-6xl py-24">
+      <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="space-y-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+            <Smartphone className="h-4 w-4" />
+            Android app
+          </div>
+          <h1 className="text-balance font-heading text-4xl leading-tight sm:text-5xl lg:text-6xl">
+            Take the cinema shelf with you.
+          </h1>
+          <p className="max-w-xl text-lg leading-8 text-muted-foreground">
+            Download the mobile app, browse quickly, and keep the same
+            movie-first experience close at hand.
+          </p>
+          <DownloadNow />
         </div>
-      </div>
 
-      <h2 style={{ marginTop: 32, textAlign: 'center' }}>How to Install</h2>
-      <ol
-        className="install-steps-list"
-        style={{
-          padding: 0,
-          listStyle: 'none',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 32,
-        }}>
-        {instructionSteps.map((step, idx) => (
-          <li
-            key={idx}
-            className="install-steps-item"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 24,
-              background: 'hsl(var(--card))',
-              color: 'hsl(var(--card-foreground))',
-              borderRadius: 16,
-              padding: 16,
-              boxShadow: '0 1px 8px #0001',
-            }}>
+        <div className="cinema-panel rounded-3xl p-4 sm:p-6">
+          <h2 className="mb-4 font-heading text-2xl">App Screenshots</h2>
+          <div
+            {...swipeHandlers}
+            className="relative mx-auto flex h-[clamp(360px,58vw,620px)] max-w-full items-center justify-center overflow-hidden rounded-2xl bg-black/50">
             <Image
-              src={step.img}
-              alt={`Step ${idx + 1}`}
-              width={180}
-              height={320}
-              style={{
-                width: 'clamp(120px, 30vw, 180px)',
-                height: 'clamp(220px, 40vw, 320px)',
-                objectFit: 'contain',
-                borderRadius: 12,
-                boxShadow: '0 1px 8px #0002',
-                flexShrink: 0,
-                background: '#222',
-              }}
+              src={screenshotImages[current]}
+              alt={`Screenshot ${current + 1}`}
+              width={600}
+              height={400}
+              className="h-full w-full select-none rounded-2xl bg-black object-contain shadow-2xl shadow-black/40 transition-opacity"
+              draggable={false}
             />
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <strong
-                style={{ fontSize: 20, display: 'block', marginBottom: 8 }}>
-                Step {idx + 1}
-              </strong>
-              <div
-                style={{ fontSize: 17, lineHeight: 1.5 }}
-                dangerouslySetInnerHTML={{ __html: step.desc }}
-              />
+            <button
+              onClick={prev}
+              className="border-white/15 absolute left-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border bg-black/50 text-foreground backdrop-blur-md transition hover:bg-white/10 hover:text-primary"
+              aria-label="Previous">
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={next}
+              className="border-white/15 absolute right-3 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border bg-black/50 text-foreground backdrop-blur-md transition hover:bg-white/10 hover:text-primary"
+              aria-label="Next">
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2">
+              {screenshotImages.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Show screenshot ${i + 1}`}
+                  className={`h-2.5 rounded-full transition-all ${
+                    i === current
+                      ? 'w-8 bg-primary'
+                      : 'bg-white/35 w-2.5 hover:bg-white/60'
+                  }`}
+                  onClick={() => setCurrent(i)}
+                />
+              ))}
             </div>
-          </li>
-        ))}
-      </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-16 space-y-8">
+        <div className="max-w-3xl space-y-3">
+          <h2 className="font-heading text-3xl sm:text-4xl">How to Install</h2>
+          <p className="text-muted-foreground">
+            Follow these steps on your Android device after downloading the APK.
+          </p>
+        </div>
+        <ol className="install-steps-list grid list-none gap-5 p-0">
+          {instructionSteps.map((step, idx) => (
+            <li
+              key={idx}
+              className="install-steps-item cinema-panel flex flex-col gap-5 rounded-2xl p-4 sm:flex-row sm:items-center sm:p-5">
+              <Image
+                src={step.img}
+                alt={`Step ${idx + 1}`}
+                width={180}
+                height={320}
+                className="install-steps-img mx-auto h-[clamp(220px,40vw,320px)] w-[clamp(120px,30vw,180px)] shrink-0 rounded-xl bg-black object-contain shadow-xl shadow-black/30 sm:mx-0"
+              />
+              <div className="min-w-0 flex-1">
+                <strong className="mb-2 block font-heading text-2xl text-primary">
+                  Step {idx + 1}
+                </strong>
+                <div
+                  className="text-base leading-7 text-muted-foreground"
+                  dangerouslySetInnerHTML={{ __html: step.desc }}
+                />
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
     </div>
   );
 }

@@ -81,17 +81,21 @@ export function PreDownload() {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div className="text-left sm:text-center">
       <Link
-        className={buttonVariants({ size: 'lg' })}
+        className={buttonVariants({
+          size: 'lg',
+          className:
+            'border-white/15 hover:bg-white/15 rounded-full border bg-white/10 px-7 font-bold text-foreground backdrop-blur-md hover:text-foreground',
+        })}
         href="/mobile-app"
         onClick={handleClick}>
         Download APP <ArrowDownToLine className="ml-1 inline-block" />
       </Link>
-      <div style={{ fontSize: 13, color: '#888', marginTop: 6 }}>
-        Latest version &bull; Safe &amp; direct download &bull; No Pop up ads
+      <div className="mt-2 text-xs leading-5 text-muted-foreground">
+        Latest version &bull; Safe &amp; direct download &bull; No pop-up ads
         <br />
-        <span style={{ color: '#6366f1', fontWeight: 600, fontSize: 15 }}>
+        <span className="text-sm font-semibold text-primary">
           {formatCount(displayCount)} downloads
         </span>
       </div>

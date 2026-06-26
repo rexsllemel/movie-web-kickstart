@@ -7,3 +7,6 @@ Host: https://toplaymovies.site
 
 # Sitemaps
 Sitemap: https://toplaymovies.site/sitemap.xml
+
+# AI crawler context
+LLM-Content: https://toplaymovies.site/llms.txt

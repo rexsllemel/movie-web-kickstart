@@ -103,6 +103,12 @@ export default function RootLayout({
         <meta property="og:image" content="https://toplaymovies.site/og.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://toplaymovies.site" />
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms.txt"
+          title="AI crawler site context"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
 

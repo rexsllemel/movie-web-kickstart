@@ -11,10 +11,7 @@ export function ForPlay() {
       href="/home"
       onClick={(e) => {
         e.preventDefault(); // Prevent the default link behavior
-        window.open(
-          'https://latelyninetyfeelings.com/esxakj3b?key=4fa27388d230df37216df8c1510e10ba',
-          '_blank',
-        ); // Open the second link in a new tab
+        window.open('https://omg10.com/4/11204670', '_blank'); // Open the second link in a new tab
       }}></Link>
   );
 }

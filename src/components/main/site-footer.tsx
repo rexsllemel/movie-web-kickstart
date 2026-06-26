@@ -103,7 +103,7 @@ const SiteFooter = () => {
       {/* </div> */}
       {/* <div className="mx-auto mt-8 w-full max-w-[1200px]">
         <iframe
-          src="https://latelyninetyfeelings.com/esxakj3b?key=4fa27388d230df37216df8c1510e10ba"
+          src="https://omg10.com/4/11204670"
           title="Embedded Content"
           className="h-[200px] w-full rounded-lg border"
           frameBorder="0"

@@ -82,22 +82,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>To Play Movies | Fmovies - Watch Free Movies Online</title>
+        <title>To Play Movies | Watch Free Movies Online Without Login</title>
         <meta
           name="description"
-          content="To Play Movies just like Fmovies is a file-sharing website that allows people to watch a wide range of movies and TV shows for free. Download our mobile app."
+          content="To Play Movies helps you browse free movies, TV shows, anime, and new releases online with no account setup or subscription flow."
         />
         <meta
           name="keywords"
-          content="home of free movies, watch movies online, netflix alternative, 123movies, fmovies, disney+, hbo, cinemax, movie download, stream movies, download mobile app"
+          content="watch free movies online, free movies without login, no sign up movies, watch tv shows online, anime online, movie search, stream movies, download mobile app"
         />
         <meta
           property="og:title"
-          content="To Play Movies - Watch Movies & TV Shows"
+          content="To Play Movies - Free Movies Without Login"
         />
         <meta
           property="og:description"
-          content="Watch movies and shows online. Pure entertainment movies $ TV Shows."
+          content="Browse movies, shows, anime, and new releases with direct no-login access."
         />
         <meta property="og:url" content="https://toplaymovies.site" />
         <meta property="og:image" content="https://toplaymovies.site/og.jpg" />

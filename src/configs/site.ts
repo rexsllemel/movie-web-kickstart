@@ -5,9 +5,9 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: env.NEXT_PUBLIC_SITE_NAME,
   author: env.NEXT_PUBLIC_SITE_NAME,
-  slogan: 'Experience entertainment without limits',
+  slogan: 'Watch free movies and shows without a login',
   description:
-    'Watch movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more.',
+    'Browse free movies, TV shows, anime, and new releases online with no account setup or subscription flow.',
   keywords: [
     'watch movies',
     'movies online',

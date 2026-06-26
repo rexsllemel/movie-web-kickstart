@@ -6,27 +6,27 @@ import { Clapperboard, MonitorPlay, Search, ShieldCheck } from 'lucide-react';
 export default function Index() {
   const features = [
     {
-      title: 'Curated movie shelves',
+      title: 'Free movie shelves',
       description:
-        'Browse trending films, TV shows, anime, and genre collections from one cinematic home.',
+        'Jump into trending movies, TV shows, anime, and genre rows without signing up first.',
       icon: Clapperboard,
     },
     {
-      title: 'Fast title search',
+      title: 'Quick title search',
       description:
-        'Find movies and shows by name, actor, director, or genre with a focused search experience.',
+        'Find a movie or show by title, genre, actor, or director and get back to watching faster.',
       icon: Search,
     },
     {
-      title: 'Watch across screens',
+      title: 'Made for every screen',
       description:
-        'Open the site on desktop, tablet, mobile, or install the Android app for quick access.',
+        'Open the site on desktop, tablet, or mobile, with the Android app ready for quicker access.',
       icon: MonitorPlay,
     },
     {
-      title: 'Simple direct access',
+      title: 'No-login access',
       description:
-        'No subscription flow, no account setup, just a direct path into the titles you want.',
+        'No account setup or subscription flow, just a direct path to the titles you want to play.',
       icon: ShieldCheck,
     },
   ];
@@ -54,7 +54,7 @@ export default function Index() {
         </Link> */}
         <div className="mx-auto flex min-h-[calc(100vh-12rem)] max-w-6xl flex-col justify-center gap-6">
           <div className="inline-flex w-fit items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Streaming cinema
+            Free movies, no login
           </div>
           <h1
             id="hero-heading"
@@ -65,8 +65,19 @@ export default function Index() {
           </h1>
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
             {siteConfig.slogan}. Browse movies, TV shows, anime, and new
-            releases in a darker, faster, poster-first experience.
+            releases with no account setup between you and the next title.
           </p>
+          <div className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/70">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">
+              No sign-up
+            </span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">
+              No subscription
+            </span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">
+              Poster-first browsing
+            </span>
+          </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
             <WatchNowButton />
             <PreDownload />
@@ -78,11 +89,11 @@ export default function Index() {
         className="container space-y-8 py-12 md:py-16 lg:py-24">
         <div className="max-w-3xl space-y-3">
           <h2 className="font-heading text-3xl leading-tight sm:text-4xl md:text-5xl">
-            Everything points back to the movie.
+            Start watching with fewer steps.
           </h2>
           <p className="leading-7 text-muted-foreground sm:text-lg">
-            Cleaner browsing, sharper artwork, and less friction between you and
-            the next title.
+            Cleaner browsing, sharper artwork, and a no-login path from search
+            to play.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

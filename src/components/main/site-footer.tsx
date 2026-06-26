@@ -80,24 +80,7 @@ const SiteFooter = () => {
           </span>
         </div>
         <p className="text-xs leading-loose text-muted-foreground sm:text-sm md:text-left">
-          Built by{' '}
-          <a
-            href={'https://faithcloud.net'}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium text-foreground underline underline-offset-4 transition hover:text-primary">
-            {'Faith Cloud Services'}
-          </a>
-          {/* . The source code is available on{" "}
-          <a
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noreferrer"
-            className="font-medium underline underline-offset-4"
-          >
-            GitHub
-          </a> */}
-          .
+          Built by IDK.
         </p>
       </div>
       {/* </div> */}

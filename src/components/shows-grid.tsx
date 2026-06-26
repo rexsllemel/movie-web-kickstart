@@ -23,15 +23,15 @@ const ShowsGrid = ({ shows, query }: SearchedShowsProps) => {
   return (
     <section aria-label="Grid of shows" className="container w-full max-w-none">
       {modalStore.open && <ShowModal />}
-      <div className="main-view mt-4 min-h-[800px] pt-[5%]" id="main-view">
+      <div className="main-view min-h-[800px] py-20" id="main-view">
         {query && searchStore.loading ? (
           <ShowsSkeleton classname="pl-0" />
         ) : query && !shows?.length ? (
-          <div className="text-center">
-            <div className="inline-block text-left text-sm">
-              <p className="mb-4">{`Your search for "${query}" did not have any matches.`}</p>
-              <p className="mb-4">Suggestions:</p>
-              <ul className="list-disc pl-8">
+          <div className="flex justify-center text-center">
+            <div className="cinema-panel inline-block max-w-xl rounded-2xl p-6 text-left text-sm">
+              <p className="mb-4 font-heading text-2xl text-foreground">{`No matches for "${query}"`}</p>
+              <p className="mb-4 text-muted-foreground">Try one of these:</p>
+              <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
                 <li>Try different keywords</li>
                 <li>Looking for a movie or TV show?</li>
                 <li>Try using a movie, TV show title, an actor or director</li>
@@ -42,7 +42,7 @@ const ShowsGrid = ({ shows, query }: SearchedShowsProps) => {
         ) : (
           <div
             className={cn(
-              'xxs:grid-cols-2 xxs:gap-x-1.5 xxs:gap-y-5 grid gap-y-3.5 xs:grid-cols-3 xs:gap-y-7 sm:grid-cols-3 sm:gap-y-10 md:grid-cols-4 md:gap-y-12 lg:gap-y-14 xl:grid-cols-6 xl:gap-y-16',
+              'xxs:grid-cols-2 grid gap-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-4 xl:grid-cols-6',
               query && 'max-sm:grid-cols-3 max-[375px]:grid-cols-2',
             )}>
             {shows.map((show: Show) => (

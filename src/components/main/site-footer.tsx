@@ -1,16 +1,15 @@
 import React from 'react';
 import { siteConfig } from '@/configs/site';
-import Link from 'next/link';
-import { buttonVariants } from '@/components/ui/button';
 // import { Icons } from "@/components/icons";
 import tealLogo from '/public/teal_logo.png';
-import Script from 'next/script';
 import { CPM } from '@/components/cpm';
 
 const SiteFooter = () => {
   return (
-    <footer aria-label="Footer" className="w-full">
-      <div className="container grid w-full max-w-6xl gap-7 py-10">
+    <footer
+      aria-label="Footer"
+      className="bg-black/35 mt-12 w-full border-t border-white/10">
+      <div className="container grid w-full max-w-6xl gap-6 py-8">
         {/* <div className="flex flex-wrap items-center gap-2">
           {siteConfig.socialLinks.map(
             (item, i) =>
@@ -46,7 +45,7 @@ const SiteFooter = () => {
           )}
         </ul> */}
         <CPM />
-        <div className="fixed bottom-0 left-0 right-0 mt-4 flex items-center justify-center bg-white">
+        <div className="fixed bottom-0 left-0 right-0 mt-4 flex items-center justify-center bg-background/95 backdrop-blur">
           {/* <Script
             src="//www.highperformanceformat.com/8a147717f26470e2cbe6e10557afdf68/invoke.js"
             strategy="afterInteractive"
@@ -63,23 +62,30 @@ const SiteFooter = () => {
           `}
           </Script> */}
         </div>
-        <p className="text-xs text-foreground/60 sm:text-sm">
+        <p className="text-xs leading-6 text-muted-foreground sm:text-sm">
           @ {new Date().getFullYear()} {siteConfig.author}. This site does not
           store any files on our server, we only linked to the media which is
           hosted on 3rd party services.
         </p>
       </div>
       {/* <div className="container flex flex-col items-center justify-between md:h-24 md:flex-row md:py-0 gap-4"> */}
-      <div className="container flex h-24 items-center gap-2 px-8">
+      <div className="min-h-24 container flex flex-col items-start justify-center gap-3 border-t border-white/5 px-8 py-6 sm:flex-row sm:items-center sm:justify-between">
         {/* <Icons.play className="hidden h-6 w-6 md:block" /> */}
-        <img src={tealLogo.src} alt="Logo" className="h-6 w-6" />
-        <p className="text-center text-xs leading-loose sm:text-sm md:text-left">
+        <div className="flex items-center gap-2">
+          <span className="grid h-9 w-9 place-items-center rounded-full border border-primary/25 bg-primary/10">
+            <img src={tealLogo.src} alt="Logo" className="h-5 w-5" />
+          </span>
+          <span className="font-heading text-sm text-foreground">
+            {siteConfig.name}
+          </span>
+        </div>
+        <p className="text-xs leading-loose text-muted-foreground sm:text-sm md:text-left">
           Built by{' '}
           <a
             href={'https://faithcloud.net'}
             target="_blank"
             rel="noreferrer"
-            className="font-medium underline underline-offset-4">
+            className="font-medium text-foreground underline underline-offset-4 transition hover:text-primary">
             {'Faith Cloud Services'}
           </a>
           {/* . The source code is available on{" "}

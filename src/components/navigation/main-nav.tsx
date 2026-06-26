@@ -121,17 +121,19 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <nav
       className={cn(
-        'relative flex h-12 w-full items-center justify-between bg-gradient-to-b from-secondary/70 from-10% px-[4vw] transition-colors duration-300 md:sticky md:h-16',
-        isScrolled ? 'bg-secondary shadow-md' : 'bg-transparent',
+        'min-h-16 sticky top-0 z-50 flex w-full items-center justify-center border-b px-4 transition-all duration-300',
+        isScrolled
+          ? 'border-white/10 bg-[#06070A]/95 shadow-2xl shadow-black/30 backdrop-blur-xl'
+          : 'via-black/35 border-transparent bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm',
       )}>
-      <div className="flex items-center gap-1">
+      <div className="flex w-full max-w-[30rem] items-center justify-center gap-2">
         <DebouncedInput
           id="search-input"
           open={searchStore.isOpen}
           value={searchStore.query}
           onChange={searchShowsByQuery}
           onChangeStatusOpen={handleChangeStatusOpen}
-          containerClassName={cn(path === '/' ? 'hidden' : 'flex')}
+          containerClassName={cn(path === '/' ? 'hidden' : 'flex w-full')}
         />
         {/* <Link
           rel="noreferrer"

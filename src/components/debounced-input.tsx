@@ -76,10 +76,10 @@ export function DebouncedInput({
         type="text"
         placeholder="Search..."
         className={cn(
-          'h-auto rounded-none py-1.5 pl-8 text-sm transition-all duration-300',
+          'h-11 rounded-full border-white/10 bg-black/40 py-2 pl-11 pr-4 text-base text-foreground shadow-inner shadow-black/30 transition-all duration-300 placeholder:text-muted-foreground focus-visible:border-primary/70 focus-visible:ring-primary/40',
           open
-            ? 'w-28 border md:w-40  lg:w-60'
-            : 'w-0 border-none bg-transparent',
+            ? 'w-[calc(100vw-2rem)] max-w-[28rem] border'
+            : 'w-11 border-none bg-transparent px-0',
           className,
         )}
         defaultValue={value}
@@ -92,8 +92,8 @@ export function DebouncedInput({
         aria-label="Search"
         variant="ghost"
         className={cn(
-          'absolute top-1/2 h-auto -translate-y-1/2 rounded-full p-1 hover:bg-transparent',
-          open ? 'left-1' : 'left-[9px]',
+          'absolute top-1/2 h-10 w-10 -translate-y-1/2 rounded-full p-0 text-foreground/80 hover:bg-white/10 hover:text-primary',
+          open ? 'left-0.5' : 'left-0.5',
         )}
         onClick={() => {
           if (!inputRef.current) {

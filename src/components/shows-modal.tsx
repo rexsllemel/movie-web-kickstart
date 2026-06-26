@@ -153,17 +153,19 @@ const ShowModal = () => {
       open={modalStore.open}
       onOpenChange={handleCloseModal}
       aria-label="Modal containing show's details">
-      <DialogContent className="w-full overflow-hidden rounded-md bg-zinc-900 p-0 text-left align-middle shadow-xl dark:bg-zinc-900 sm:max-w-3xl lg:max-w-4xl">
-        <div className="video-wrapper relative aspect-video">
+      <DialogContent className="max-h-[calc(100dvh-1rem)] w-[calc(100vw-1rem)] gap-0 overflow-y-auto overflow-x-hidden rounded-2xl border border-white/10 bg-[#10131A] p-0 text-left align-middle text-foreground shadow-2xl shadow-black/60 sm:max-w-3xl lg:max-w-4xl">
+        <div className="video-wrapper relative z-10 aspect-video overflow-hidden">
           <CustomImage
             fill
             priority
             ref={imageRef}
             alt={modalStore?.show?.title ?? 'poster'}
-            className="-z-40 z-[1] h-auto w-full object-cover"
+            className="z-[1] h-full w-full object-cover transition-opacity duration-300"
             src={`https://image.tmdb.org/t/p/original${modalStore.show?.backdrop_path}`}
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 100vw, 33vw"
           />
+          <div className="via-[#10131A]/35 pointer-events-none absolute inset-x-0 -bottom-6 top-0 z-10 bg-gradient-to-t from-[#10131A] to-black/20" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[25] h-4 bg-gradient-to-t from-[#10131A] to-[#10131A]/0" />
           {trailer && (
             <Youtube
               opts={options}
@@ -178,12 +180,12 @@ const ShowModal = () => {
                 modalStore.show?.name ??
                 'video-trailer'
               }
-              className="relative aspect-video w-full"
+              className="absolute inset-0 h-full w-full"
               style={{ width: '100%', height: '100%' }}
-              iframeClassName={`relative pointer-events-none w-[100%] h-[100%] z-[-10] opacity-0`}
+              iframeClassName="pointer-events-none absolute inset-0 h-full w-full opacity-0"
             />
           )}
-          <div className="absolute bottom-6 z-20 flex w-full items-center justify-between gap-2 px-10">
+          <div className="absolute bottom-5 z-30 flex w-full items-center justify-between gap-3 px-4 sm:px-8">
             <div className="flex items-center gap-2.5">
               <Link
                 href={`/watch/${
@@ -201,10 +203,10 @@ const ShowModal = () => {
                 }}>
                 <Button
                   aria-label={`${isPlaying ? 'Pause' : 'Play'} show`}
-                  className="group h-auto rounded py-1.5">
+                  className="group h-11 rounded-full bg-primary px-6 font-bold text-primary-foreground shadow-xl shadow-primary/20 hover:bg-primary/90">
                   <>
                     <Icons.play
-                      className="mr-1.5 h-6 w-6 fill-current"
+                      className="mr-1.5 h-5 w-5 fill-current"
                       aria-hidden="true"
                     />
                     Play
@@ -215,7 +217,7 @@ const ShowModal = () => {
             <Button
               aria-label={`${isMuted ? 'Unmute' : 'Mute'} video`}
               variant="ghost"
-              className="h-auto rounded-full bg-neutral-800 p-1.5 opacity-50 ring-1 ring-slate-400 hover:bg-neutral-800 hover:opacity-100 hover:ring-white focus:ring-offset-0 dark:bg-neutral-800 dark:hover:bg-neutral-800"
+              className="bg-black/45 h-10 w-10 rounded-full border border-white/20 p-0 text-foreground/80 opacity-90 backdrop-blur-md hover:bg-white/10 hover:text-primary hover:opacity-100 focus:ring-offset-0"
               onClick={handleChangeMute}>
               {isMuted ? (
                 <Icons.volumeMute className="h-6 w-6" aria-hidden="true" />
@@ -225,34 +227,40 @@ const ShowModal = () => {
             </Button>
           </div>
         </div>
-        <div className="grid gap-2.5 px-10 pb-10">
-          <DialogTitle className="text-lg font-medium leading-6 text-slate-50 sm:text-xl">
+        <div className="relative z-0 -mt-px grid gap-4 bg-[#10131A] px-4 pb-6 pt-5 sm:px-8 sm:pb-8">
+          <DialogTitle className="font-heading text-2xl leading-tight text-foreground sm:text-3xl">
             {modalStore.show?.title ?? modalStore.show?.name}
           </DialogTitle>
-          <div className="flex items-center space-x-2 text-sm sm:text-base">
-            <p className="font-semibold text-green-400">
+          <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
+            <p className="bg-primary/15 rounded-full px-3 py-1 font-semibold text-primary">
               {Math.round((Number(modalStore.show?.vote_average) / 10) * 100) ??
                 '-'}
               % Match
             </p>
             {modalStore.show?.release_date ? (
-              <p>{getYear(modalStore.show?.release_date)}</p>
+              <p className="rounded-full bg-white/10 px-3 py-1">
+                {getYear(modalStore.show?.release_date)}
+              </p>
             ) : modalStore.show?.first_air_date ? (
-              <p>{getYear(modalStore.show?.first_air_date)}</p>
+              <p className="rounded-full bg-white/10 px-3 py-1">
+                {getYear(modalStore.show?.first_air_date)}
+              </p>
             ) : null}
             {modalStore.show?.original_language && (
-              <span className="grid h-4 w-7 place-items-center text-xs font-bold text-neutral-400 ring-1 ring-neutral-400">
+              <span className="min-w-10 border-white/15 grid h-7 place-items-center rounded-full border px-2 text-xs font-bold text-muted-foreground">
                 {modalStore.show.original_language.toUpperCase()}
               </span>
             )}
           </div>
           <CPM />
-          <DialogDescription className="line-clamp-3 text-xs text-slate-50 dark:text-slate-50 sm:text-sm">
+          <DialogDescription className="line-clamp-4 text-sm leading-6 text-muted-foreground sm:text-base">
             {modalStore.show?.overview ?? '-'}
           </DialogDescription>
-          <div className="flex items-center gap-2 text-xs sm:text-sm">
-            <span className="text-slate-400">Genres:</span>
-            {genres.map((genre) => genre.name).join(', ')}
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+            <span className="text-muted-foreground">Genres:</span>
+            <span className="text-foreground/85">
+              {genres.map((genre) => genre.name).join(', ')}
+            </span>
           </div>
           <div className="mx-auto mt-8 w-full max-w-[1200px]">
             {/* <iframe

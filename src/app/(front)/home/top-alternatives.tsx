@@ -9,7 +9,7 @@ export default function TopAlternatives() {
         url="https://toplaymovies.link/top-alternatives"
       />
       <main>
-        <h1>Top 10 Alternatives to 123Movies in 2025</h1>
+        <h1>Top 10 Alternatives to 123Movies in 2026</h1>
         <p>
           If you&apos;re looking for free alternatives to Netflix and Disney+,
           here&apos;s a list of trusted streaming sites like FMovies,

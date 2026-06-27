@@ -14,7 +14,7 @@ const Seo = ({
   description,
   image = 'https://toplaymovies.link/og.jpg',
   url = 'https://toplaymovies.link',
-  keywords = 'free movies, netflix, disney+, hbo, 123movies, fmovies, cinemax, sony, movie download, stream movies',
+  keywords = 'FMovies, To Play Movies, free movies, movies to watch for free, free streaming sites, 123movies, watch free movies online, free movies online free, fmovies alternative, 123movies alternative, free movie streaming sites, stream movies',
 }: SeoProps) => {
   return (
     <Head>

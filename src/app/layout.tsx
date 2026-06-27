@@ -82,22 +82,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>FMovies | Watch Free Movies Online Without Login</title>
+        <title>
+          FMovies - Watch Free Movies Online Free | 123movies Alternative | To
+          Play Movies
+        </title>
         <meta
           name="description"
-          content="To Play Movies helps you browse free movies, TV shows, anime, and new releases online with no account setup or subscription flow."
+          content="To Play Movies (FMovies) — watch free movies online free and find the best free streaming sites. The top FMovies and 123movies alternative with movies to watch for free, TV shows, anime, and new releases, no login required."
         />
         <meta
           name="keywords"
-          content="watch free movies online, free movies without login, no sign up movies, watch tv shows online, anime online, movie search, stream movies, download mobile app"
+          content="FMovies, To Play Movies, free movies, movies to watch for free, free streaming sites, 123movies, watch free movies online, free movies online free, fmovies alternative, 123movies alternative, free movie streaming sites, watch tv shows online, anime online, no sign up movies, stream movies"
         />
         <meta
           property="og:title"
-          content="FMovies - Free Movies Without Login"
+          content="FMovies - Watch Free Movies Online Free | To Play Movies"
         />
         <meta
           property="og:description"
-          content="Browse movies, shows, anime, and new releases with direct no-login access."
+          content="Watch free movies online on To Play Movies — the best FMovies and 123movies alternative. Free streaming sites for movies to watch for free, TV shows, and anime."
         />
         <meta property="og:url" content="https://toplaymovies.link" />
         <meta property="og:image" content="https://toplaymovies.link/og.jpg" />

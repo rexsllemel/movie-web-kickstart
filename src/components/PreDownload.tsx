@@ -77,7 +77,7 @@ export function PreDownload() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     window.open('/mobile-app', '_blank');
-    window.location.href = 'https://whomeenoaglauns.com/4/8671506';
+    window.location.href = 'https://omg10.com/4/11204670';
   };
 
   return (

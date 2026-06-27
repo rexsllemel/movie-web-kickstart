@@ -108,10 +108,7 @@ const Hero = ({ randomShow }: HeroProps) => {
                     }/${randomShow.id}`}
                     onClick={(e) => {
                       // e.preventDefault(); // Prevent the default link behavior
-                      window.open(
-                        'https://whomeenoaglauns.com/4/8671506',
-                        '_blank',
-                      ); // Open the second link in a new tab
+                      window.open('https://omg10.com/4/11204670', '_blank'); // Open the second link in a new tab
                       // window.location.href = '/home'; // Navigate to the original link
                     }}>
                     <Button

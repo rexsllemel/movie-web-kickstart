@@ -35,7 +35,7 @@ export function DownloadNow() {
       }
 
       // Open external link and redirect
-      window.open('https://whomeenoaglauns.com/4/8671506', '_blank');
+      window.open('https://omg10.com/4/11204670', '_blank');
       window.location.href = '/app/toplaymovies.apk';
     })();
   };

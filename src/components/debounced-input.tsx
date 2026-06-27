@@ -68,7 +68,12 @@ export function DebouncedInput({
   };
 
   return (
-    <div className={cn('relative', containerClassName)}>
+    <div
+      className={cn(
+        'relative flex items-center',
+        !open && 'h-10 w-10',
+        containerClassName,
+      )}>
       <Input
         ref={inputRef}
         id={id}

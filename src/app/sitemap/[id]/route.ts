@@ -12,7 +12,10 @@ export async function GET(request: Request, ctx: { params: { id: string } }) {
       `${env.NEXT_PUBLIC_APP_URL}/home`,
       `${env.NEXT_PUBLIC_APP_URL}/tv-shows`,
       `${env.NEXT_PUBLIC_APP_URL}/movies`,
+      `${env.NEXT_PUBLIC_APP_URL}/anime`,
       `${env.NEXT_PUBLIC_APP_URL}/new-and-popular`,
+      `${env.NEXT_PUBLIC_APP_URL}/top-alternatives`,
+      `${env.NEXT_PUBLIC_APP_URL}/mobile-app`,
     ];
   } else {
     const data = await getTrendingAll(id);

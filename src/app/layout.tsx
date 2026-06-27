@@ -14,7 +14,6 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 import LoadScript from '@/app/LoadScript';
 import LoadDreamy from '@/app/LoadDreamy';
-// import Seo from '@/components/Seo';
 
 export const runtime = 'edge';
 
@@ -40,7 +39,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: {
-    default: siteConfig.name,
+    default: `${siteConfig.name} | Watch Free Movies Online, No Login`,
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -52,6 +51,15 @@ export const metadata: Metadata = {
     },
   ],
   creator: siteConfig.author,
+  // Per-page canonical: resolves to the current path relative to metadataBase,
+  // so /movies canonicalizes to /movies (not the homepage).
+  alternates: {
+    canonical: './',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -69,9 +77,37 @@ export const metadata: Metadata = {
     creator: siteConfig.author,
   },
   icons: {
-    icon: '/images/icon.ico',
+    icon: '/favicon.ico',
   },
   other: { referrer: 'no-referrer-when-downgrade' },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/og.jpg`,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      publisher: { '@id': `${siteConfig.url}/#organization` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${siteConfig.url}/search?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -82,47 +118,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>
-          FMovies - Watch Free Movies Online Free | 123movies Alternative | To
-          Play Movies
-        </title>
-        <meta
-          name="description"
-          content="To Play Movies (FMovies) — watch free movies online free and find the best free streaming sites. The top FMovies and 123movies alternative with movies to watch for free, TV shows, anime, and new releases, no login required."
-        />
-        <meta
-          name="keywords"
-          content="FMovies, To Play Movies, free movies, movies to watch for free, free streaming sites, 123movies, watch free movies online, free movies online free, fmovies alternative, 123movies alternative, free movie streaming sites, watch tv shows online, anime online, no sign up movies, stream movies"
-        />
-        <meta
-          property="og:title"
-          content="FMovies - Watch Free Movies Online Free | To Play Movies"
-        />
-        <meta
-          property="og:description"
-          content="Watch free movies online on To Play Movies — the best FMovies and 123movies alternative. Free streaming sites for movies to watch for free, TV shows, and anime."
-        />
-        <meta property="og:url" content="https://toplaymovies.link" />
-        <meta property="og:image" content="https://toplaymovies.link/og.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://toplaymovies.link" />
+        {/*
+          SEO tags (title, description, keywords, canonical, Open Graph, Twitter)
+          are emitted by the `metadata` export above so they stay unique per page
+          and canonical points at the current path. Do not re-add static copies
+          here — that produces duplicate <title> tags and a homepage canonical on
+          every route, which de-indexes subpages.
+        */}
         <link
           rel="alternate"
           type="text/plain"
           href="/llms.txt"
           title="AI crawler site context"
         />
-        <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
 
         <LoadScript />
         <LoadDreamy />
 
         <meta name="monetag" content="52eeb41ba7db02fcf547f5164d28c8dc" />
-        {/* <Seo
-          title="To Play Movies - Watch Free Movies Online"
-          description="To Play Movies just like Fmovies is a file-sharing website that allows people to watch a wide range of movies and TV shows for free."
-        /> */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body
         className={cn(

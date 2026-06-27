@@ -1,6 +1,6 @@
 // next-sitemap.config.js
 module.exports = {
-  siteUrl: 'https://toplaymovies.site',
+  siteUrl: 'https://toplaymovies.link',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.8,

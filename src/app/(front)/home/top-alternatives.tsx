@@ -6,7 +6,7 @@ export default function TopAlternatives() {
       <Seo
         title="Top 10 Free Movie Streaming Sites Like 123Movies & FMovies"
         description="Discover the best free movie streaming websites like 123Movies, FMovies, and To Play Movies. No subscription required!"
-        url="https://toplaymovies.site/top-alternatives"
+        url="https://toplaymovies.link/top-alternatives"
       />
       <main>
         <h1>Top 10 Alternatives to 123Movies in 2025</h1>

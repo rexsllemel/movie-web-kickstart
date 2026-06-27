@@ -2,13 +2,13 @@ const SEO = {
   title: 'To Play Movies',
   description:
     'Watch free movies online. Your FMovies and 123movies alternative.',
-  canonical: 'https://toplaymovies.site',
+  canonical: 'https://toplaymovies.link',
   openGraph: {
-    url: 'https://toplaymovies.site',
+    url: 'https://toplaymovies.link',
     title: 'To Play Movies',
     description: 'Experience entertainment without limits!',
     images: [
-      { url: 'https://toplaymovies.site/og.jpg', alt: 'To Play Movies Logo' },
+      { url: 'https://toplaymovies.link/og.jpg', alt: 'To Play Movies Logo' },
     ],
   },
 };

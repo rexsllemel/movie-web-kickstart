@@ -12,8 +12,8 @@ interface SeoProps {
 const Seo = ({
   title,
   description,
-  image = 'https://toplaymovies.site/og.jpg',
-  url = 'https://toplaymovies.site',
+  image = 'https://toplaymovies.link/og.jpg',
+  url = 'https://toplaymovies.link',
   keywords = 'free movies, netflix, disney+, hbo, 123movies, fmovies, cinemax, sony, movie download, stream movies',
 }: SeoProps) => {
   return (

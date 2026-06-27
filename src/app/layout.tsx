@@ -82,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>To Play Movies | Watch Free Movies Online Without Login</title>
+        <title>FMovies | Watch Free Movies Online Without Login</title>
         <meta
           name="description"
           content="To Play Movies helps you browse free movies, TV shows, anime, and new releases online with no account setup or subscription flow."
@@ -93,16 +93,16 @@ export default function RootLayout({
         />
         <meta
           property="og:title"
-          content="To Play Movies - Free Movies Without Login"
+          content="FMovies - Free Movies Without Login"
         />
         <meta
           property="og:description"
           content="Browse movies, shows, anime, and new releases with direct no-login access."
         />
-        <meta property="og:url" content="https://toplaymovies.site" />
-        <meta property="og:image" content="https://toplaymovies.site/og.jpg" />
+        <meta property="og:url" content="https://toplaymovies.link" />
+        <meta property="og:image" content="https://toplaymovies.link/og.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://toplaymovies.site" />
+        <link rel="canonical" href="https://toplaymovies.link" />
         <link
           rel="alternate"
           type="text/plain"

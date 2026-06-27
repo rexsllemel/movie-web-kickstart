@@ -3,10 +3,10 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://toplaymovies.site
+Host: https://toplaymovies.link
 
 # Sitemaps
-Sitemap: https://toplaymovies.site/sitemap.xml
+Sitemap: https://toplaymovies.link/sitemap.xml
 
 # AI crawler context
-LLM-Content: https://toplaymovies.site/llms.txt
+LLM-Content: https://toplaymovies.link/llms.txt
